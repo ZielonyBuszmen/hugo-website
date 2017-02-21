@@ -1,7 +1,7 @@
 echo "Deploying updates to GitHub..."
 
 :: Build the project.
-hugo -t mainroad
+hugo -t mainroad --buildDrafts
 :: if using a theme, replace by `hugo -t <yourtheme>`
 
 :: Go To Public folder
@@ -10,9 +10,9 @@ cd public
 git add -A
 
 :: Commit changes.
-SET msg="rebuilding site `date`"
+SET msg="rebuilding site"
 
-git commit -m "%msg%"
+git commit -m %msg%
 
 :: Push source and build repos.
 git push origin master
