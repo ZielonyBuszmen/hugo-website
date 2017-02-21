@@ -1,1 +1,1 @@
-hugo server --buildDrafts
+hugo server --buildDrafts --watch
