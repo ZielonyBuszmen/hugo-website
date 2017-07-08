@@ -1,8 +1,9 @@
-languageCode = "en-us"
-title = "ZielonyBuszmen"
+languageCode = "pl-pl"
+title = "Zielony Buszmen"
 baseurl = "https://zielonybuszmen.github.io/"
 theme = "mainroad"
 paginate = "10"
+
 
 [Author]
     name = "Zielony Buszmen"
@@ -11,7 +12,7 @@ paginate = "10"
 
 
 [Params]
-    subtitle = "Just another site" # Subtitle of your site
+    subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
     description = " John Doe's Personal blog about everything" # Description of your site
     opengraph = true
     leftsidebar = false # Move sidebar to the left side if true
@@ -24,3 +25,29 @@ paginate = "10"
     recent_articles = true # Enable "Recent arcticles" widget
     categories = true # Enable "Categories" widget
     tags = true # Enable "Tags" widget
+
+
+[menu]
+    [[menu.main]]
+    identifier = "news"
+    name       = "Main()" # zrobić, aby wyglądało jak main() z c#
+    url        = "/"
+    weight     = 0
+
+    [[menu.main]]
+    identifier = "projekty"
+    name       = "Zrealizowane projekty"
+    url        = "/projekty/"
+    weight     = 1
+
+    [[menu.main]]
+    identifier = "o-mnie"
+    name       = "O mnie"
+    url        = "/o-mnie/"
+    weight     = 2
+
+    [[menu.main]]
+    identifier = "github"
+    name       = "GitHub"
+    url        = "https://github.com/ZielonyBuszmen"
+    weight     = 3

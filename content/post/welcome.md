@@ -1,9 +1,10 @@
 +++
 date = "2017-02-21T20:15:59+01:00"
+description = ""
 title = "welcome"
-draft = true
 tags = [ "Development", "Go", "fast", "Blogging" ]
 categories = [ "Development" ]
+
 +++
 
 #Post z możliwościami MD
