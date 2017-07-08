@@ -37,7 +37,7 @@ paginate = "10"
     [[menu.main]]
     identifier = "projekty"
     name       = "Zrealizowane projekty"
-    url        = "/projekty/"
+    url        = "/categories/projekty/"
     weight     = 1
 
     [[menu.main]]

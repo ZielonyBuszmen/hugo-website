@@ -4,7 +4,7 @@ description = ""
 title = " socos "
 thumbnail = ""
 tags = []
-categories = []
+categories = ["Projekty"]
 
 +++
 
