@@ -1,7 +1,7 @@
 echo "Deploying updates to GitHub..."
 
 :: Build the project.
-hugo -t mainroad --buildDrafts
+hugo -t beautifulhugo --buildDrafts
 :: if using a theme, replace by `hugo -t <yourtheme>`
 
 :: Go To Public folder
