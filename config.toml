@@ -1,23 +1,45 @@
 languageCode = "pl-pl"
 title = "Zielony Buszmen"
 baseurl = "https://zielonybuszmen.github.io/"
-theme = "mainroad"
+theme = "beautifulhugo"
 paginate = "10"
+pygmentsUseClasses = true
+pygmentCodeFences = true
+
+tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive"]
+features = ["blog", "themes", "disqus", "minimal", "responsive"]
+
+[author]
+    name = "halogenica"
+    homepage = "http://halogenica.net"
+
+# If Porting existing theme
+[original]
+    author =  "dattali"
+    homepage = "http://deanattali.com/beautiful-jekyll/"
+    repo = "https://github.com/daattali/beautiful-jekyll"
 
 
 [Author]
     name = "Zielony Buszmen"
     bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
     avatar = "img/avatar.png"
+    homepage = "http://halogenica.net"
 
 
 [Params]
     subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
-    description = " John Doe's Personal blog about everything" # Description of your site
+    description = " Mocno techniczny blog programistyczny" # Description of your site
     opengraph = true
     leftsidebar = false # Move sidebar to the left side if true
     authorbox = true
     post_navigation = true
+     logo = "img/avatar-icon.png"
+      favicon = "img/favicon.ico"
+    dateFormat = "2 January 2006"
+      commit = false
+      rss = true
+    comments = true
 
 
 [Params.widgets]
