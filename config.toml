@@ -1,13 +1,14 @@
+baseurl = "https://zielonybuszmen.github.io/"
+DefaultContentLanguage = "pl"
 languageCode = "pl-pl"
 title = "Zielony Buszmen"
-baseurl = "https://zielonybuszmen.github.io/"
 theme = "beautifulhugo"
-paginate = "10"
+paginate = "50"
 pygmentsUseClasses = true
 pygmentCodeFences = true
+metaDataFormat = "yaml"
 
-tags = ["blog", "company", "portfolio", "projects", "minimal", "responsive"]
-features = ["blog", "themes", "disqus", "minimal", "responsive"]
+
 
 [author]
     name = "halogenica"
@@ -22,20 +23,20 @@ features = ["blog", "themes", "disqus", "minimal", "responsive"]
 
 [Author]
     name = "Zielony Buszmen"
-    bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+    bio = "Opis bio"
     avatar = "img/avatar.png"
-    homepage = "http://halogenica.net"
-
+      website = "yourwebsite.com"
+      email = "youremail@domain.com"
+      facebook = "username"
+      googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
+      github = "username"
 
 [Params]
     subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
     description = " Mocno techniczny blog programistyczny" # Description of your site
-    opengraph = true
-    leftsidebar = false # Move sidebar to the left side if true
-    authorbox = true
     post_navigation = true
-     logo = "img/avatar-icon.png"
-      favicon = "img/favicon.ico"
+     logo = "img/avatar-green.png"
+      favicon = "img/avatar-green.png"
     dateFormat = "2 January 2006"
       commit = false
       rss = true
@@ -51,14 +52,8 @@ features = ["blog", "themes", "disqus", "minimal", "responsive"]
 
 [menu]
     [[menu.main]]
-    identifier = "news"
-    name       = "Main()" # zrobić, aby wyglądało jak main() z c#
-    url        = "/"
-    weight     = 0
-
-    [[menu.main]]
     identifier = "projekty"
-    name       = "Zrealizowane projekty"
+    name       = "Projekty"
     url        = "/categories/projekty/"
     weight     = 1
 
@@ -68,8 +63,27 @@ features = ["blog", "themes", "disqus", "minimal", "responsive"]
     url        = "/o-mnie/"
     weight     = 2
 
+
     [[menu.main]]
     identifier = "github"
     name       = "GitHub"
     url        = "https://github.com/ZielonyBuszmen"
-    weight     = 3
+    weight     = 4
+
+    [[menu.main]]
+        identifier = "menu"
+        pre = "<i class='fa fa-heart'></i> - tutaj może być ikonka"
+        name = "Menu"
+        weight = 5
+
+    [[menu.main]]
+        parent = "menu"
+        name = "Kategorie"
+        url = "categories"
+        weight = 1
+
+    [[menu.main]]
+        parent = "menu"
+        name = "Tagi"
+        url = "tags"
+        weight = 2
