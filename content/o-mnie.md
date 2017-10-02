@@ -1,1 +1,1 @@
-O mnie, kuxwa
+O mnie, ble ble ble, z wordpressa przepisać
