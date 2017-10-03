@@ -1,7 +1,7 @@
 baseurl = "https://zielonybuszmen.github.io/"
 DefaultContentLanguage = "pl"
 languageCode = "pl-pl"
-title = "Zielony Buszmen"
+#title = "Zielony Buszmen"
 theme = "beautifulhugo"
 paginate = "50"
 pygmentsUseClasses = true
@@ -9,10 +9,6 @@ pygmentCodeFences = true
 metaDataFormat = "yaml"
 
 
-
-[author]
-    name = "halogenica"
-    homepage = "http://halogenica.net"
 
 # If Porting existing theme
 [original]
@@ -22,7 +18,7 @@ metaDataFormat = "yaml"
 
 
 [Author]
-    name = "Zielony Buszmen"
+  #  name = "Zielony Buszmen"
     bio = "Opis bio"
     avatar = "img/avatar.png"
       website = "yourwebsite.com"
@@ -32,12 +28,12 @@ metaDataFormat = "yaml"
       github = "username"
 
 [Params]
-    subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
-    description = " Mocno techniczny blog programistyczny" # Description of your site
+    #subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
+   # description = " Mocno techniczny blog programistyczny" # Description of your site
     post_navigation = true
-     logo = "img/avatar-green.png"
-      favicon = "img/avatar-green.png"
-    dateFormat = "2 January 2006"
+    # logo = "img/avatar-green.png"
+    #  favicon = "img/avatar-green.png"
+    dateFormat = "2 February 2006"
       commit = false
       rss = true
     comments = true
@@ -56,12 +52,12 @@ metaDataFormat = "yaml"
     name       = "Projekty"
     url        = "/categories/projekty/"
     weight     = 1
-
-    [[menu.main]]
-    identifier = "o-mnie"
-    name       = "O mnie"
-    url        = "/o-mnie/"
-    weight     = 2
+#
+#    [[menu.main]]
+#    identifier = "o-mnie"
+#    name       = "O mnie"
+#    url        = "/o-mnie/"
+#    weight     = 2
 
 
     [[menu.main]]
