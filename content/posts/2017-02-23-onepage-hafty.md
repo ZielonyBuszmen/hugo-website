@@ -12,13 +12,13 @@ tags:
 ---
 <pre>git clone https://github.com/ZielonyBuszmen/onePage-hafty.git</pre>
 
-  * <span class="project-info link-github">Github &#8211; </span>[github.com/ZielonyBuszmen/onePage-hafty][1]
-  * <span class="project-info">Działający projekt &#8211; </span>[hafty-kasi.cba.pl][2]
+  * <span class="project-info link-github">Github &#8211; </span>[github.com/ZielonyBuszmen/onePage-hafty](https://github.com/ZielonyBuszmen/onePage-hafty)
+  * <span class="project-info">Działający projekt &#8211; </span>[hafty-kasi.cba.pl](http://hafty-kasi.cba.pl/)
   * <span class="project-info">Technologie &#8211; </span>Larevel 5.3, Bootstrap, Angular2
   * <span class="project-info">Data &#8211; </span> styczeń 2017
   * <span class="project-info">Przeznaczenie projektu &#8211; </span> Projekt na zlecenie. Na stronie znajduje się galeria zdjęć, księga gości i kilka informacji. Wszystko wykonane jako &#8222;OnePage&#8221;, bez przeładowywania witryny. Strona korzysta z ViewComposerów oraz została &#8222;zlokalizowana&#8221; w 3 językach
 
-## [<img class="aligncenter size-full wp-image-261" title="" src="http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1.png" alt="" width="1519" height="770" srcset="http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1.png 1519w, http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1-300x152.png 300w, http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1-768x389.png 768w, http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1-1024x519.png 1024w, http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1-820x416.png 820w" sizes="(max-width: 1519px) 100vw, 1519px" />][3]
+![foto](/img/posts/projekty/onepage_hafty/hafty-1.png)
 
 ## Kilka spraw technicznych
 
@@ -142,6 +142,3 @@ Następnie musimy przejść do pliku `node_modules/elixir-typescript/index.js` i
 
 Na koniec wpisujemy komendę `gulp` by skompilować assety (pliki TypeScript) Angulara 2.
 
- [1]: https://github.com/ZielonyBuszmen/onePage-hafty
- [2]: http://hafty-kasi.cba.pl/
- [3]: http://zielonybuszmen.cba.pl/wp-content/uploads/2017/02/hafty-1.png
