@@ -229,18 +229,18 @@ elixir(function(mix){
 });
 </pre>
             
-            Wykorzystujemy tutaj dobrodziejstwo Laravela i jego  _Elixir Mix_. Więcej do poczytania w dokumentacji wersji 5.3: [laravel.com/docs/5.3/elixir][1]
-  
-            &nbsp;
-            
-            &nbsp;
-            
-              * Tworzymy folder w `public/app_angular2` i wpisujemy komendę w _terminalu_ 
-                <pre>gulp</pre>
-                
-                &nbsp;
-                
-                &nbsp;
+Wykorzystujemy tutaj dobrodziejstwo Laravela i jego  _Elixir Mix_. Więcej do poczytania w dokumentacji wersji 5.3: [laravel.com/docs/5.3/elixir](https://laravel.com/docs/5.3/elixir)
+
+&nbsp;
+
+&nbsp;
+
+  * Tworzymy folder w `public/app_angular2` i wpisujemy komendę w _terminalu_ 
+    <pre>gulp</pre>
+    
+    &nbsp;
+    
+    &nbsp;
                 
                   * W katalogu `/public` tworzymy plik **systemjs.config.js** <pre class="brush: jscript; title: ; notranslate" title="">/**
  * System configuration for Angular samples
@@ -319,5 +319,3 @@ elixir(function(mix){
 </pre>
                     
                       * Vua La! Po uruchomieniu aplikacji powinniśmy zobaczyć napis **_Moja angularowa aplikacja działa! Jak trzeba</b>_. Nie pozostaje nam nic innego, jak rozpoczęcie tworzenia kodu. Warto dodać, że po każdej zmianie pliku w folderze typescripts musimy wpisać komendę `gulp`, która zaktualizuje nam pliki js. Aby proces ten zautomatyzować, możemy wpisać komendę  `gulp watch`, która rozwiąże problem </ol>
-
- [1]: https://laravel.com/docs/5.3/elixir
