@@ -16,6 +16,10 @@ metaDataFormat = "yaml"
     homepage = "http://deanattali.com/beautiful-jekyll/"
     repo = "https://github.com/daattali/beautiful-jekyll"
 
+[[Params.bigimg]]
+ # src = "img/sphere.jpg"
+  src = "img/tlo2.png"
+  #desc = "Triangle"
 
 [Author]
     name = "Zielony Buszmen"
@@ -31,7 +35,7 @@ metaDataFormat = "yaml"
     subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site
     description = " Mocno techniczny blog programistyczny" # Description of your site
     post_navigation = true
-     logo = "img/avatar-green.png"
+    # logo = "img/avatar-green.png"
       favicon = "img/avatar-green.png"
     dateFormat = "2 January 2006"
       commit = false
