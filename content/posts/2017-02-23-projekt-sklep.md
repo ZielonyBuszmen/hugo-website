@@ -1,5 +1,6 @@
 ---
-title: Projekt Sklep – prosty sklep internetowy
+title: Projekt Sklep
+subtitle: Prosty sklep internetowy
 author: Krzysiek Komar
 type: post
 date: 2017-02-23T08:43:52+00:00

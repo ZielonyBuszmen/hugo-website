@@ -1,5 +1,6 @@
 ---
-title: Projekt Moodle – platforma e-learningowa
+title: Projekt Moodle
+subtitle: Platforma e-learningowa
 author: Krzysiek Komar
 type: post
 date: 2017-02-23T14:28:42+00:00
