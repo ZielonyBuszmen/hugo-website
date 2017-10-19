@@ -5,7 +5,7 @@ type: post
 date: 2017-02-23T13:07:00+00:00
 url: /2017/02/23/onepage-hafty/
 categories:
-  - Zrealizowane projekty
+  - Projekty
 tags:
   - Projekty
 

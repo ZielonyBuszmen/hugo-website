@@ -5,7 +5,7 @@ type: post
 date: 2017-02-23T08:43:52+00:00
 url: /2017/02/23/projekt-sklep-prosty-sklep-internetowy/
 categories:
-  - Zrealizowane projekty
+  - Projekty
 tags:
   - Projekty
 

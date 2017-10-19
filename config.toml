@@ -17,19 +17,16 @@ metaDataFormat = "yaml"
     repo = "https://github.com/daattali/beautiful-jekyll"
 
 [[Params.bigimg]]
- # src = "img/sphere.jpg"
-  src = "img/tlo2.png"
-  #desc = "Triangle"
+    # src = "img/sphere.jpg"
+    src = "img/tlo2.png"
+    #desc = "Triangle"
 
 [Author]
     name = "Zielony Buszmen"
     bio = "Opis bio"
     avatar = "img/avatar.png"
-      website = "yourwebsite.com"
-      email = "youremail@domain.com"
-      facebook = "username"
-      googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-      github = "username"
+    website = "https://zielonybuszmen.github.io/"
+    github = "ZielonyBuszmen"
 
 [Params]
     subtitle = "Mocno techniczny blog programistyczny" # Subtitle of your site

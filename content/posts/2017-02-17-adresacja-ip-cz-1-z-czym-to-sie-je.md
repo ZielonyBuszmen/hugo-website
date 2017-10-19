@@ -202,12 +202,11 @@ Tam gdzie zera w masce, tam i zera w adresie. A więc ostatni oktet powinien wyg
 
 * * *
 
-# [Część druga:][1]
+# Część druga:
 
 W drugiej części poradnika pokażę, jak podzielić sieć na podsieci oraz pod-podsieci ze względu na ilość sieci lub ilość hostów. Zobaczymy również, jak obliczyć ilość hostów w danej podsieci i adres broadcast.
 
-<h2 style="text-align: center;">
-  <a href="http://zielonybuszmen.cba.pl/2017/02/18/adresacja-ip-cz-2-podzial-na-podsieci/">>> Przejdź do drugiej części <<</a>
-</h2>
 
- [1]: http://zielonybuszmen.cba.pl/2017/02/18/adresacja-ip-cz-2-podzial-na-podsieci/
+[ >> Przejdź do części drugiej <<](/2017/02/18/adresacja-ip-cz-2-podzial-na-podsieci/)
+
+

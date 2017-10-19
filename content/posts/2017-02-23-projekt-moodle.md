@@ -5,7 +5,7 @@ type: post
 date: 2017-02-23T14:28:42+00:00
 url: /2017/02/23/projekt-moodle-prosta-platforma-e-learningowa/
 categories:
-  - Zrealizowane projekty
+  - Projekty
 tags:
   - Projekty
 

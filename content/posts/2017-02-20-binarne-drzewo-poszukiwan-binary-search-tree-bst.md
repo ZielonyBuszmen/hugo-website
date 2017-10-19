@@ -24,7 +24,7 @@ A co z elementami równymi? To już kwestia własnego ustalenia. Zazwyczaj takie
 
 Na obrazku rootem (głównym węzłem) drzewa jest liczba 8. Ma ona dwóch potomków: 3 oraz 10. Następnie 3 też ma dwóch potomków: 1 oraz 6. Można więc powiedzieć, że 3 jest ojcem dla 1 i 6. Bądź 14 jest ojcem 13; albo że 8 jest ojcem 3 i 10. Warto zauważyć, że np. taka 14 posiada tylko lewego potomka 13. Węzeł 4 nie ma potomków w ogóle.
 
-Na tym zakończylibyśmy tą całą otoczkę teoretyczną. Nie omówiliśmy takich rzeczy jak dodawanie węzła, przeszukiwanie drzewa, itp. To wszystko można znaleźć w tym filmiku: [**https://youtu.be/_V7a1Gwuj5k?t=37m46s**][1]  (od **37:46** do **45:20**). Gościu fajnie tłumaczy, ALE nie polecam sugerować się jego kodem. BO jego drzewo jest w C++ ORAZ po drugie i najważniejsze – stosuje **tablicową implementację drzewa**, która do niczego nam się nie przyda. Bo my musimy napisać drzewo „z prawdziwego zdarzenia”, a nie jakieś tablicowe śmieszki.
+Na tym zakończylibyśmy tą całą otoczkę teoretyczną. Nie omówiliśmy takich rzeczy jak dodawanie węzła, przeszukiwanie drzewa, itp. To wszystko można znaleźć w tym filmiku: [**https://youtu.be/_V7a1Gwuj5k?t=37m46s**](https://youtu.be/_V7a1Gwuj5k?t=37m46s)  (od **37:46** do **45:20**). Gościu fajnie tłumaczy, ALE nie polecam sugerować się jego kodem. BO jego drzewo jest w C++ ORAZ po drugie i najważniejsze – stosuje **tablicową implementację drzewa**, która do niczego nam się nie przyda. Bo my musimy napisać drzewo „z prawdziwego zdarzenia”, a nie jakieś tablicowe śmieszki.
 
 Warto jeszcze nadmienić, że w tym artykule nie będzie pokazane całe drzewo ze wszystkimi jego możliwościami, itd. Po taką wiedzę zapraszam piętro niżej, do wydziału leśnego. No bo kto jak kto, ale oni o drzewach wiedzą najwięcej.
 
@@ -517,6 +517,3 @@ namespace tree
 &nbsp;
 
 ## [Pobierz drzewo w PDF](/files/drzewo.pdf)
-
-
- [1]: https://youtu.be/_V7a1Gwuj5k?t=37m46s

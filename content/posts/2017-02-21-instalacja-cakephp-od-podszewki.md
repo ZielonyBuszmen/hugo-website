@@ -9,10 +9,9 @@ categories:
 format: video
 
 ---
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
- <iframe width="100%" height="500px"
-src="https://www.youtube.com/embed/L6rNjcW_-1s">
-</iframe> 
+
+https://www.youtube.com/embed/L6rNjcW_-1s
+
 
 ### Linki, komendy
 
