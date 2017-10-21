@@ -25,7 +25,7 @@ Sprawdzanie bieżącego brancha:
 
 <pre><code class="language-git">git branch</code></pre>
 
-<pre>git status-sb</pre>
+<pre><code class="language-git">git status -sb</code></pre>
 
 Tworzenie nowego brancha wskazującej na bieżącego commita (lub SHA-1)
 
