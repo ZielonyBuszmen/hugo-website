@@ -66,6 +66,7 @@
 <script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
 <!-- Google Custom Search Engine -->
 {{ if .Site.Params.gcse }}
+
 <script>
   (function() {
     var cx = '{{ .Site.Params.gcse }}';
@@ -78,5 +79,5 @@
   })();
 </script>
 {{ end }}
-
+<script src="/prism-highlighter/prism.js"></script>
 {{- partial "footer_custom.html" . }}

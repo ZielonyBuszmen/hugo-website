@@ -38,6 +38,8 @@ disqusShortname = "zielonybuszmen-github-io"
       commit = false
       rss = true
     comments = true
+    custom_css = ["/prism-highlighter/prism.css"]
+    custom_js = ["/prism-highlighter/prism.js"] # custom js nie działa, kod w footer.html
 
 
 [Params.widgets]

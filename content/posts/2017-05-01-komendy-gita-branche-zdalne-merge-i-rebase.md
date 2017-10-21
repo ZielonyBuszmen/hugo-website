@@ -11,10 +11,19 @@ tags:
 
 ---
 ## Operowanie branchami
+<pre class= "line-numbers"><code class="language-css">/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+c+cpp+csharp+git+java+php+python+sql */
+    /**
+     * prism.js default theme for JavaScript, CSS and HTML
+     * Based on dabblet (http://dabblet.com)
+     * @author Lea Verou
+     */
+    
+    code[class*="language-"],
+    pre[class*="language-"] {</code></pre>
 
 Sprawdzanie bieżącego brancha:
 
-<pre>git branch</pre>
+<pre><code class="language-git">git branch</code></pre>
 
 <pre>git status-sb</pre>
 
