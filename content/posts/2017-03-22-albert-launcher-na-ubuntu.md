@@ -5,12 +5,11 @@ type: post
 date: 2017-03-22T20:09:51+00:00
 url: /2017/03/22/albert-launcher-na-ubuntu/
 categories:
-  - Usprawnienia
+  - Produktywność
 tags:
   - Linux
-
 ---
-Pracując na Windowsie korzystałem z małego programiku o nazwie Launchy. Było to naprawdę ogromne usprawnienie podczas korzystania z komputera. Szybkie obliczenie, wyszukanie czegoś na necie albo uruchomienie dowolnego programu bez odrywania rąk od klawiatury było bardzo wygodne. Niestety, Launchy niezbyt dobrze działa na Ubuntu 16, więc zostałem zmuszony do poszukania alternatywy. Znalazłem coś, co nazywa się Albert Launcher, i uwierzcie, jest to o wiele lepsze rozwiązanie od starego już Launchy&#8217;ego.
+Pracując na Windowsie korzystałem z małego programiku o nazwie Launchy. Było to naprawdę ogromne usprawnienie podczas korzystania z komputera. Szybkie obliczenie, wyszukanie czegoś na necie albo uruchomienie dowolnego programu bez odrywania rąk od klawiatury było bardzo wygodne. Niestety, Launchy niezbyt dobrze działa na Ubuntu 16, więc zostałem zmuszony do poszukania alternatywy. Znalazłem coś, co nazywa się Albert Launcher, i uwierzcie, jest to o wiele lepsze rozwiązanie od starego już Launchy'ego.
 
 ![foto](/img/posts/Albert-launcher-ubuntu-4.png)
 
@@ -18,11 +17,11 @@ Pracując na Windowsie korzystałem z małego programiku o nazwie Launchy. Było
 ## Instalacja
 
 W terminalu wpisujemy
-
-    sudo apt-add-repository ppa:flexiondotorg/albert
-    sudo apt-get update
-    sudo apt-get install albert
-
+```bash
+sudo apt-add-repository ppa:flexiondotorg/albert
+sudo apt-get update
+sudo apt-get install albert
+```
 Przy pierwszym uruchomieniu musimy wybrać skrót, którym będziemy odpalać Alberta. Najwygodniejszy `Alt + Space` jest niestety zajęty przez Ubuntu (i bardzo ciężko go &#8222;uwolnić&#8221;), stąd też wybrałem `Ctrl + Space`
   
 ![foto](/img/posts/F1nXp.png)
@@ -64,8 +63,10 @@ Wywołane okno launchera prezentuje się następująco. Poniżej przykładowe &#
 
 ## Skrót Alt + Spacja
 
-Jednak możliwe jest ustawienie skrótu Alberta na Alt + Spacja. Można go uruchomić komendą
+Jednak możliwe jest ustawienie skrótu Alberta na Alt + Spacja. Alberta można uruchomić komendami
 
-<pre>albert show</pre>
-
-stąd też możemy wygodnie &#8222;zbindować&#8221; skrót w ustawieniach Ubuntu.
+```bash
+albert show
+albert toggle
+```
+stąd też możemy wygodnie 'zbindować' skrót w ustawieniach Ubuntu.

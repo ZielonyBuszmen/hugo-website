@@ -1,5 +1,6 @@
 ---
-title: Instalacja Angulara2 do Laravela5 do ‚współdziałania’
+title: Laravel i Angular w jednym stali domku
+subtitle: Instalacja Angulara 2 w projekcie Laravela 5
 author: Krzysiek Komar
 type: post
 date: 2017-03-01T21:47:42+00:00
@@ -11,7 +12,7 @@ tags:
   - Laravel
 
 ---
-Na necie jest cała masa poradników, jak zainstalować Angulara2. Tylko wszystkie mają pewien problem &#8211; Angular instaluje się jako &#8222;stand-alone&#8221;. Jak więc go dodać do Laravela? Jest jeden prosty sposób &#8211; korzystać z Laravela jako API, a cała aplikacja (front) powinna być zrobiona w Angularze2. Takie rozwiązanie mnie nie satysfakcjonowało, więc spróbowałem **zainstalować Angulara razem z Laravelem **, tak aby korzystać z odpowiedniej struktury katalogów oraz nie zaburzyć porządku w aplikacji Laravela.
+Na necie jest cała masa poradników, jak zainstalować Angulara2. Tylko wszystkie mają pewien problem - Angular instaluje się jako &#8222;stand-alone&#8221;. Jak więc go dodać do Laravela? Jest jeden prosty sposób &#8211; korzystać z Laravela jako API, a cała aplikacja (front) powinna być zrobiona w Angularze2. Takie rozwiązanie mnie nie satysfakcjonowało, więc spróbowałem **zainstalować Angulara razem z Laravelem **, tak aby korzystać z odpowiedniej struktury katalogów oraz nie zaburzyć porządku w aplikacji Laravela.
 
 Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść nie tak, więc trzeba przygotować spory zapas czasu na poniższą _zabawę_
 

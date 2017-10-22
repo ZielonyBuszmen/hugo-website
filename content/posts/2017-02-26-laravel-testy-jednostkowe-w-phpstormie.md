@@ -1,5 +1,6 @@
 ---
-title: Laravel – testy jednostkowe w PHPStormie
+title: Laravel 5 a testy w PHPStorm
+subtitle: Konfiguracja PHPStorma do testów jednostkowych w Laravelu 5
 author: Krzysiek Komar
 type: post
 date: 2017-02-26T17:06:36+00:00
@@ -26,17 +27,15 @@ W nowo otwartym oknie wybieramy **Use Composer autoloader** i jako ścieżkę po
 Przechodzimy do `/tests/ExampleTest.php` i piszemy przykładowy test:
 
 ```php
-
 class ExampleTest extends TestCase
 {
-    public function testTrueTest()
+    public function testTrue()
     {
-        $this-&gt;assertTrue(true);
+        $this->assertTrue(true);
     }
 }
-
 ```
 
-Aby uruchomić test, ustawiamy kursor w funkcji `testTrueTest` oraz wciskamy kombinacje klawiszy **Ctrl + Shift + F10**. Gotowe! 🙂 Test powinien się uruchomić i &#8222;się zaliczyć&#8221;.
+Aby uruchomić test, ustawiamy kursor w funkcji `testTrue` oraz wciskamy kombinacje klawiszy **Ctrl + Shift + F10**. Gotowe! 🙂 Test powinien się uruchomić i "się zaliczyć" ;)
   
 ![foto](/img/posts/laravel-phpStorm-testy-tdd-2.png)

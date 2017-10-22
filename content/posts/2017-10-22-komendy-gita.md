@@ -11,15 +11,9 @@ tags:
 
 ---
 
+Mały cheat sheet z komendami **GITa**. Trochę tego się nazbierało, dlatego najlepszym wyjściem będzie Ctrl + F. Wszystkie komendy gita są szczegółowo opisane na stronie dokumentacji [git-scm.com/docs](https://git-scm.com/docs). 
 
-<style>
-p {
-    margin-bottom: 0px;
-}
-h2 {
-    margin-top: 40px;
-}
-</style>
+Natomiast samego **GITa** można pobrać stąd: [git-scm.com/downloads](https://git-scm.com/downloads)
 
 ## Konfiguracja
 
@@ -433,3 +427,12 @@ git help branch
 git help config
 git help init
 ```
+
+<style>
+p {
+    margin-bottom: 0px;
+}
+h2 {
+    margin-top: 40px;
+}
+</style>
