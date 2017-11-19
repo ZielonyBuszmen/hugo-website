@@ -10,13 +10,17 @@ tags:
   - Projekty
 
 ---
-<pre>git clone https://github.com/ZielonyBuszmen/onePage-hafty.git</pre>
 
-  * <span class="project-info link-github">Github &#8211; </span>[github.com/ZielonyBuszmen/onePage-hafty](https://github.com/ZielonyBuszmen/onePage-hafty)
-  * <span class="project-info">Działający projekt &#8211; </span>[hafty-kasi.cba.pl](http://hafty-kasi.cba.pl/)
-  * <span class="project-info">Technologie &#8211; </span>Larevel 5.3, Bootstrap, Angular2
-  * <span class="project-info">Data &#8211; </span> styczeń 2017
-  * <span class="project-info">Przeznaczenie projektu &#8211; </span> Projekt na zlecenie. Na stronie znajduje się galeria zdjęć, księga gości i kilka informacji. Wszystko wykonane jako &#8222;OnePage&#8221;, bez przeładowywania witryny. Strona korzysta z ViewComposerów oraz została &#8222;zlokalizowana&#8221; w 3 językach
+```git 
+git clone https://github.com/ZielonyBuszmen/onePage-hafty.git
+``` 
+* <span class="project-info link-github">Github - </span>[github.com/ZielonyBuszmen/onePage-hafty](https://github.com/ZielonyBuszmen/onePage-hafty)
+* <span class="project-info">Działający projekt - </span>[hafty-kasi.cba.pl](http://hafty-kasi.cba.pl/)
+* <span class="project-info">Użyte technologie - </span> Larevel 5.3, Bootstrap, Angular2
+* <span class="project-info">Kiedy - </span>  styczeń 2017
+* <span class="project-info">Przeznaczenie projektu - </span>  Projekt na zlecenie. Na stronie znajduje się galeria zdjęć, księga gości i kilka informacji. Wszystko wykonane jako 'OnePage', bez przeładowywania witryny. Strona korzysta z ViewComposerów oraz została 'zlokalizowana' w trzech językach
+
+
 
 ![foto](/img/posts/projekty/onepage_hafty/hafty-1.png)
 

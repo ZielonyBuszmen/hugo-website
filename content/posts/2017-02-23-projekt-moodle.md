@@ -11,14 +11,16 @@ tags:
   - Projekty
 
 ---
-<pre>git clone https://github.com/bartoszgajda55/projektMoodle.git</pre>
+```git 
+git clone https://github.com/bartoszgajda55/projektMoodle.git
+``` 
+* <span class="project-info link-github">Github - </span>[github.com/bartoszgajda55/projektMoodle](https://github.com/bartoszgajda55/projektMoodle)
+* <span class="project-info">Działający projekt - </span>[projektmoodle.cba.pl](http://projektmoodle.cba.pl/) lub [projektmoodle.za.pl](http://projektmoodle.za.pl/)
+* <span class="project-info">Użyte technologie - </span> PHP, MySQL, Bootstrap
+* <span class="project-info">Kiedy - </span> październik/listopad 2015
+* <span class="project-info">Zespół - </span> niewielki, bo dwuosobowy. Razem ze mną kodził Bartosh: **[bartoszgajda.com](http://bartoszgajda.com/)**
+* <span class="project-info">Przeznaczenie projektu - </span> Projekt został stworzony na potrzeby zaliczenia programowania w ostatniej klasie technikum
 
-  * <span class="project-info link-github">Github &#8211; </span>[github.com/bartoszgajda55/projektMoodle](https://github.com/bartoszgajda55/projektMoodle)
-  * <span class="project-info">Działający projekt &#8211; </span>[projektmoodle.cba.pl](http://projektmoodle.cba.pl/) lub [projektmoodle.za.pl](http://projektmoodle.za.pl/)
-  * <span class="project-info">Technologie &#8211; </span> PHP, MySQL, Bootstrap
-  * <span class="project-info">Data &#8211; </span> październik/listopad 2015
-  * <span class="project-info">Zespół &#8211; </span> niewielki, bo dwuosobowy. Razem ze mną kodził Bartosh: **[bartoszgajda.com](http://bartoszgajda.com/)**
-  * <span class="project-info">Przeznaczenie projektu &#8211; </span> Projekt został stworzony na potrzeby zaliczenia programowania w ostatniej klasie technikum
 
 ![foto](/img/posts/projekty/projekt_moodle/projekt-moodle-1.png)
 
