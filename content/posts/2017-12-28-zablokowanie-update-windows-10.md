@@ -17,19 +17,18 @@ Przedstawiam prosty sposób na zablokowanie Windows Update na Windowsie 10 (dzia
 
 1. Pobieramy archiwum zip ([Windows 10 Update Disabler 1.0](/files/Windows10UpdaterDisabler.zip)) i je wypakowujemy
 
-2. Uruchamiamy konsolę w jako administrator, przechodzimy do katalogu z wypakowanym programem i wpisujemy polecenie.
+2. Uruchamiamy konsolę jako administrator a następnie przechodzimy do katalogu z wypakowanym programem i wpisujemy polecenie:
 ```cmd
 UpdaterDisabler.exe -install
 ```
 ![sreen pokazujący działanie programu](/img/posts/disable-update2.png)
 
-I tyle. Wystarczy wejść w "Ustawienia", aby sprawdzić, czy rzeczywiście to zadziałało.
-
+I tyle. Wystarczy wejść w "Ustawienia", aby sprawdzić, że rzeczywiście to działa
 
 ## A jak to działa?
-Program instaluje w systemie usługę, która sprawdza aktywność Windows Update, a gdy ją wykryje próbuje ją 'ubić'.
+Program instaluje w systemie usługę, która sprawdza aktywność Windows Update. Gdy ją wykryje, próbuje ją 'ubić'.
 
-Aby przywrócić domyślne działanie Windows Update, należy tą usługę wyłączyć. Najłatwiej jest to zrobić usuwając ją z systemu poleceniem
+Aby przywrócić domyślne działanie Windows Update, należy tą usługę wyłączyć. Najłatwiej jest to zrobić usuwając ją z systemu poleceniem:
 ```cmd
 UpdaterDisabler.exe -remove
 ```
