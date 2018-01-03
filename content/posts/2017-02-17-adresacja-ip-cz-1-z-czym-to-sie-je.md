@@ -1,5 +1,6 @@
 ---
-title: Adresacja IP cz. 1 – Z czym to się je?
+title: Adresacja IP cz. 1
+subtitle: Z czym to się je?
 author: Krzysiek Komar
 type: post
 date: 2017-02-17T15:02:06+00:00
@@ -10,14 +11,11 @@ tags:
   - Sieci
 
 ---
-Niniejszy poradnik został stworzony dla osób, którym obce jest dzielenie sieci na podsieci. W tym poradniku pokażę obliczanie adresów sieci oraz jak ugryźć maskę, by sobie zębów nie połamać. Poradnik składa się z dwóch części. Druga jest dostępna tutaj: [Adresacja IP cz. 2 – podział na podsieci][1].
+Niniejszy poradnik został stworzony dla osób, którym obce jest dzielenie sieci na podsieci. W tym poradniku pokażę obliczanie adresów sieci oraz jak ugryźć maskę, by sobie zębów nie połamać. Poradnik składa się z dwóch części. Druga jest dostępna tutaj: [Adresacja IP cz. 2 – podział na podsieci](/2017/02/18/adresacja-ip-cz-2-podzial-na-podsieci/).
 
 > Pierwotnie poradnik został wrzucony na stronę Pcfaq.pl Z racji tego, że ma wysoką wartość _edukacyjną_ oraz że jest on mojego autorstwa, postanowiłem go przenieść także i tutaj.
 
-## **Adres IP i jego maska
-  
-**
-
+## Adres IP i jego maska
 A więc, aby zrozumieć zaawansowane „techniki”, musimy przypomnieć sobie podstawy. Co to jest adres IP i do czego służy nie wytłumaczę, gdyż Wiki nie kot, nie ugryzie. Na „warsztat” rzucimy sobie przykładowy adres IP:
 
 <pre><strong><big><big>190.168.15.10</big></big></strong></pre>
@@ -28,9 +26,7 @@ Każdy adres IP ma swoją maskę. Maska ta zakrywa tylko część adresu. Maska 
 
 <pre><big><big><strong>190 = 10111110</strong></big></big></pre>
 
-> <div class="wpz-sc-box info ">
 >   Warto nadmienić, że każda z czterech części adresu IP (a także maski) składa się z ośmiu bitów. Jeśli po zamianie liczby na system binarny wychodzi nam mniej bitów niż 8, dopisujemy zera przed liczbę, czyli np. 17 = 10001. Liczba binarna ma 5 cyfr, więc z początku dopisujemy trzy zera. Końcowa liczba powinna wyglądać tak: 00010001
-> </div>
 
 Po zamianie pierwszego oktetu na liczbę binarną musimy sprawdzić pierwsze cyfry (te od lewej). W naszym przypadku jest to 10, więc adres należy do klasy B. Poniżej tabelka ukazująca te zasady:
 
@@ -55,6 +51,7 @@ Po zamianie pierwszego oktetu na liczbę binarną musimy sprawdzić pierwsze cyf
     </td>
     
     <td width="197">
+    1
     </td>
     
     <td width="57">
@@ -91,7 +88,6 @@ Po zamianie pierwszego oktetu na liczbę binarną musimy sprawdzić pierwsze cyf
   </tr>
 </table>
 
-&nbsp;
 
 Gdy znamy klasę naszego adresu, pozostaje nam napisać maskę. Maski zapisuje się w dwóch formatach. Pierwszy z nich to ten, podobny do adresu ip, np. 255.255.0.0. Drugi sposób to liczba po ukośniku, np. /16.
 
@@ -105,8 +101,8 @@ Drugi sposób zapisania maski to liczba po ukośniku, np. /16. O co tutaj biega?
 
 Po cóż więc ta maska jest? Jak to prawią mądre księgi: „Maska oddziela część adresu sieci od części hosta”. Mądre to słowa. A teraz prościej. Mamy jakiś IP i znamy jego maskę (czy to z obliczeń, czy to z treści zadania). Ten adres IP może być adresem jakiegoś konkretnego komputera. A my chcemy znać np. adres sieci tego komputera, albo chcemy wiedzieć ile komputerów jest w tej sieci. Musimy wtedy dokonać pewnego obliczenia. Adres i maska muszą rozpisane być blisko siebie, jeden nad drugim. Pamiętajmy, że najlepiej wszystko widać na adresach i maskach zapisanych w formie binarnej, więc do takiego stanu musimy doprowadzić nasze „obiekty testowe”.
 
-<pre><big><big>190.168.15.10 = 11000000. 10101000.00001111.00001010
-255.255.0.0 = 11111111.11111111.00000000.00000000</big></big></pre>
+<pre><big><big>190.168.15.10 = 11000000.10101000.00001111.00001010
+255.255.0.0  =  11111111.11111111.00000000.00000000</big></big></pre>
 
 Teraz musimy zrobić coś niebywale precyzyjnego. Chirurg na oddziale ma już lżejsze zadanie. Otóż cała sztuka polega na tym, by każda cyfra adresu IP była pod daną cyfra maski.
 
@@ -137,12 +133,9 @@ Dlatego też, tam gdzie mamy jedynki w masce, to tam znajduje się adres IP siec
 <strong>11111111.11111111.</strong>00000000.00000000 – oraz jego maska</big></big></pre>
 
 Teraz wystarczy każdy oktet adresu sieci zamienić na liczbę dziesiętna. Wyjdzie nam 190.168.0.0. Jest to nasz adres sieci.
+____
 
-* * *
-
-&nbsp;
-
-## **Maski trochę mniej standardowe**
+## Maski trochę mniej standardowe
 
 Maski klas adresów A, B oraz C są, co by tu dużo nie gadać, standardowe. Gdybyśmy się uparli, to nie musielibyśmy zamieniać całego adresu IP na system binarny. Wystarczyłby pierwszy oktet do określenia maski i tyle. Potem moglibyśmy działać na liczbach dziesiętnych. Powyższe zadanie moglibyśmy rozwiązać tak:
 
@@ -175,9 +168,8 @@ Tak jak pamiętamy, tam gdzie maska ma zera, to i w adresie IP sieci też są ze
 
 Daje nam to liczbę 16, więc cały adres sieci wygląda tak: 10.20.16.0
 
-* * *
+____
 
-&nbsp;
 
 Jako drugi przykład weźmy adres IP 192.168.75.220 wraz z maską /29.
 
@@ -196,9 +188,7 @@ Teraz musimy podstawić 4 oktet adresu IP pod czwarty oktet maski:
 
 Tam gdzie zera w masce, tam i zera w adresie. A więc ostatni oktet powinien wyglądać tak: .11011000, co daje nam liczbę 216. Pozostałe 3 oktety przepisujemy bez zmian, a więc adres sieci wygląda tak:
 
-<pre><big><big>192.168.75.216
-
-</big></big></pre>
+<pre><big><big>192.168.75.216</big></big></pre>
 
 * * *
 

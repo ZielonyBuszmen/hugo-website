@@ -1,5 +1,6 @@
 ---
-title: Adresacja IP cz. 2 – podział na podsieci
+title: Adresacja IP cz. 2
+subtitle: Podział na podsieci
 author: Krzysiek Komar
 type: post
 date: 2017-02-18T15:01:40+00:00
@@ -65,28 +66,28 @@ Druga podsieć ma w bitach 01, co daje nam po podstawieniu liczbę 01000000. Po 
 
 Trzecia podsieć ma w bitach 10, więc liczba 10000000 daje nam 128.
 
->   Jak teraz obliczyć pierwszy adres hosta? Wystarczy do adresu sieci dodać 1, czyli .0 +1 = 1. Pierwszym hostem podsieci 00 jest 192.168.25.1. Tak samo robimy z drugą podsiecią, co daje nam 192.168.25.65. Pierwszym adresem trzeciej podsieci jest 192.168.25.129.
+> Jak teraz obliczyć pierwszy adres hosta? Wystarczy do adresu sieci dodać 1, czyli .0 +1 = 1. Pierwszym hostem podsieci 00 jest 192.168.25.1. Tak samo robimy z drugą podsiecią, co daje nam 192.168.25.65. Pierwszym adresem trzeciej podsieci jest 192.168.25.129.
 
 Aby obliczyć adres broadcast, musimy w części adresu hosta podstawić jedynki. Czyli:
 
 <pre><big><big>.00 111111 - adres podsieci 1.
 .11 000000 - maska</big></big></pre>
 
-00111111 daje nam to 63, czyli adres broadcast pierwszej podsieci to 192.168.25.63.
+`00111111` daje nam 63, czyli adres broadcast pierwszej podsieci to 192.168.25.63.
 
 Z drugą podsiecią postępujemy identycznie
 
 <pre><big><big>.01 111111 - adres podsieci 2.
 .11 000000 - maska</big></big></pre>
 
-Liczba 01111111 daje nam 127, czyli adres broadcast pierwszej podsieci to 192.168.25.127.
+Liczba `01111111` daje nam 127, czyli adres broadcast pierwszej podsieci to 192.168.25.127.
 
 W trzeciej podsieci jest identycznie:
 
 <pre><big><big>.10 111111 - adres podsieci 3.
 .11 000000 - maska</big></big></pre>
 
-10111111 daje nam liczbę 191, czyli adres broadcast pierwszej podsieci to 192.168.25.191.
+`10111111` daje nam liczbę 191, czyli adres broadcast pierwszej podsieci to 192.168.25.191.
 
 ## Przykład nr 2:
 
@@ -107,21 +108,21 @@ Podstawmy pod adres pod maskę:
 <pre><big><big>1111111 <strong>1.1</strong>0000000 - maska
 1001000 0.00000000 - adres</big></big></pre>
 
-A więc pierwsza podsieć ma bity **00**:
+A więc pierwsza podsieć ma bity **`00`**:
 
 <pre><big><big>1111111 <strong>1.1</strong>0000000 - maska
 1001000 <strong>0.0</strong>0000000 - adres pierwszej podsieci</big></big></pre>
 
 Po zamianie obu oktetów na liczby dziesiętne mamy 144.0, więc adres pierwszej podsieci to 120.130.144.0
 
-Druga podsieć ma bity **01**. Podstawiamy to:
+Druga podsieć ma bity **`01`**. Podstawiamy to:
 
 <pre><big><big>1111111 <strong>1.1</strong>0000000 - maska
 1001000 <strong>0.1</strong>0000000 - adres drugiej podsieci</big></big></pre>
 
 Po zamianie wychodzi nam 144.128, co daje nam adres 120.130.144.128
 
-Trzecia podsieć ma bity **10:**
+Trzecia podsieć ma bity **`10`**:
 
 <pre><big><big>1111111 <strong>1.1</strong>0000000 - maska
 1001000 <strong>1.0</strong>0000000 - adres trzeciej podsieci</big></big></pre>
@@ -130,7 +131,7 @@ Daje nam to po zamianie 145.0, więc adres trzeciej podsieci to 120.130.145.0
 
 &nbsp;
 
-Ostatnia, czwarta podsieć ma bity **11**:
+Ostatnia, czwarta podsieć ma bity **`11`**:
 
 <pre><big><big>1111111 <strong>1.1</strong>0000000 - maska
 1001000 <strong>1.1</strong>0000000 - adres czwartej podsieci</big></big></pre>
@@ -159,9 +160,9 @@ Teraz obliczymy adres broad cast dla poszczególnych podsieci. Tak jak już był
 
 >   Aby obliczyć adres ostatniego hosta wystarczy że od adresu broadcast odejmiemy jedynkę. A więc dla przykładu ostatnim adresem w pierwszej podsieci będzie 120.130.144.126, gdyż adres broadcast to 120.130.144.127.
 
-## Informacje na koniec {.wpz-sc-box.info}
+## Informacje na koniec
 
-Pierwotnie oba artykuły zostały umieszczone na stronie pcfaq.pl. Z racji tego że są całkiem niezłe i w dodatku mogę poszczyć się, że jestem ich autorem, umieściłem je tutaj. 😉 Linki do pierwotnych artykułów:
+Pierwotnie oba artykuły zostały umieszczone na stronie pcfaq.pl. Z racji tego że są całkiem niezłe i w dodatku mogę pochwalić się, że to ja jestem ich autorem, umieściłem je tutaj. 😉 Linki do pierwotnych artykułów:
 
   * [Adresacja IP cz. 1 – Z czym to się je?](http://pcfaq.pl/internet/adresacja-ip-z-czym-to-sie-je-cz-1/)
   * [Adresacja IP cz. 2 – podział na podsieci](http://pcfaq.pl/internet/adresacja-ip-cz-2-podzial-na-podsieci/)
