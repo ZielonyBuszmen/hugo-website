@@ -13,3 +13,8 @@
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+.post-preview .post-subtitle {
+  font-size: 26px;
+  font-weight: 600;
+}

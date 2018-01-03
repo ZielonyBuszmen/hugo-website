@@ -10,13 +10,13 @@
 - id: readMore
   translation: "Czytaj dalej"
 - id: olderPosts
-  translation: "Starszy wpis"
+  translation: "Starsze wpisy"
 - id: newerPosts
-  translation: "Nowszy wpis"
+  translation: "Nowsze wpisy"
 - id: previousPost
-  translation: "Poprzedni post"
+  translation: "Starszy post"
 - id: nextPost
-  translation: "Następny post"
+  translation: "Nowszy post"
 
 # 404 page
 - id: pageNotFound
