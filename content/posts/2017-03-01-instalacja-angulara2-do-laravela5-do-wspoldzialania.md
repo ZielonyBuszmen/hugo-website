@@ -18,7 +18,9 @@ Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść 
 
 # Zaczynamy
 
-  1. W głównym katalogu szukamy pliku `package.json` i podmieniamy w nim kod na poniższy: <pre class="brush: jscript; title: package.json; notranslate" title="package.json">{
+  1. W głównym katalogu szukamy pliku `package.json` i podmieniamy w nim kod na poniższy: 
+```javascript
+  {
   "private": true,
   "scripts": {
     "prod": "gulp --production",
@@ -66,15 +68,13 @@ Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść 
     "vue-resource": "^0.9.3"
   }
 }
-</pre>
-    
+```
     Jest to plik, który &#8222;zarządza&#8221; pakietami Node.js. Dzięki niemu w łatwy sposób w dalszej części ściągniemy wszystkie wymagane biblioteki.
-  
-    &nbsp;
-    
-    &nbsp;
+ 
 
-  2. W głównym katalogu tworzymy plik `tsconfig.json` <pre class="brush: jscript; title: tsconfig.json; notranslate" title="tsconfig.json">{
+  2. W głównym katalogu tworzymy plik `tsconfig.json`
+```javascript
+  {
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -86,53 +86,41 @@ Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść 
     "noImplicitAny": false
   }
 }
-</pre>
+```
     
     Plik konfiguracyjny dla skryptu kompilującego typescript do JSa
-  
-    &nbsp;
-    
-    &nbsp;
 
-  3. Tworzymy plik `typings.json` również w głównym katalogu <pre class="brush: jscript; title: typings.json; notranslate" title="typings.json">{
+
+  3. Tworzymy plik `typings.json` również w głównym katalogu
+```javascript
+  {
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160725163759",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
     "node": "registry:dt/node#6.0.0+20160909174046"
   }
 }
-</pre>
-    
-    &nbsp;
-    
-    &nbsp;
-
+```
   4. Uruchamiamy terminal i wpisujemy w nim komendę: 
-    <pre>npm install</pre>
-    
+```cmd
+    npm install
+```
     Może to trochę potrwać, bo właśnie teraz do katalogu  _node_modules_ pobierają się wszystkie paczki wymienione w pliku _package.json_
     
-    &nbsp;
-    
-    &nbsp;
-    
-      * Po tym przechodzimy do `node_modules/elixir-typescript/index.js` i komentujemy poniższą linijkę: <pre class="brush: jscript; first-line: 45; title: ; notranslate" title="">//.pipe($.concat(paths.output.name))
-</pre>
-        
+      * Po tym przechodzimy do `node_modules/elixir-typescript/index.js` i komentujemy poniższą linijkę: 
+```javascript
+  //.pipe($.concat(paths.output.name))
+```
+
         Jak by nie patrzeć to edytujemy plik &#8222;systemowy&#8221;, nie powinno się tak robić. Niestety, w tym wypadku musimy. Bo gdy nie zakomentujemy tej linijki, skrypt kompilujący TS do JS wrzuci wszystko do jednego pliku app.js. A nie o to nam chodzi. Chcemy przecież, by kompilator TSa skompilował każdy plik oddzielnie. Stąd też taka mała zmiana w kodzie źródłowym. </li> 
-        
-        &nbsp;
-        
-        &nbsp;
-        
-          * Przechodzimy do `resources/assets/typescript` i tworzymy w nim 3 pliki: `app.component.ts`, `app.module.ts`, `main.ts`. (Gdyby folder _typescript_ nie istniał, to go oczywiście tworzymy 😉 )
+
+      * Przechodzimy do `resources/assets/typescript` i tworzymy w nim 3 pliki: `app.component.ts`, `app.module.ts`, `main.ts`. (Gdyby folder _typescript_ nie istniał, to go oczywiście tworzymy 😉 )
   
-            &nbsp;
-  
+ 
             Będą to pliki naszej aplikacji Angularowej. Tutaj będziemy rozszerzać jej funkcjonalność o nowe komponenty.
   
-            &nbsp;</p> 
-            **app.module.ts**
+     
+        **app.module.ts**
             
             <pre class="brush: jscript; title: resources/assets/typescript/app.module.ts; notranslate" title="resources/assets/typescript/app.module.ts">///&lt;reference path="../../../typings/index.d.ts"/&gt;
 
