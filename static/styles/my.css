@@ -28,3 +28,11 @@ pre {
   position: relative;
 }
 /* ---------------------- */
+
+
+.about-me-logo
+{
+  display: inline;
+  width: 30px;
+  height: 30px;
+}
