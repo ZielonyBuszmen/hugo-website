@@ -4,3 +4,6 @@ https://gohugo.io/
 
 
 hugo serve -D
+
+
+/test
