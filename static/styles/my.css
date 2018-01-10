@@ -21,10 +21,6 @@
 
 /* przeciwdziała display:flex z body{} */
 .container {
-  width: 100%;
-}
-
-.container {
   max-width: 100%;
 }
 
