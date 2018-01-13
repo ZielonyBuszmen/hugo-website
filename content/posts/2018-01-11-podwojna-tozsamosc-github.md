@@ -21,10 +21,10 @@ Trzeba rozdzielić dwie kwestie wrzucania kodu na GitHuba:
 2. **Jako kto wrzucisz kod** - czyli jaki username i jaki email wyświetli się w historii commitów. Jest to określane za pomocą *git identity*.
 
 ## Generowanie kluczy RSA
-Odnosząc się do pkt 1. Aby przedstawiony sposób zadziałał, musimy zacząć łączyć się do GitHuba za pomocą SSH zamiast HTTPS.
-Na początku musimy wygenerować dwa klucze RSA, do pierwszego i do drugiego konta.
+Aby przedstawiony sposób zadziałał, musimy zacząć łączyć się do GitHuba za pomocą SSH zamiast HTTPS.
+Na początku wygenerujemy dwa klucze RSA, do pierwszego i do drugiego konta.
 
-Generujemy nowy klucz SSH wpisując w terminalu (na Windowsie najlepiej odpalić Git Bash):
+Klucz SSH można wygenerować wpisując w terminalu poniższą komendę (na Windowsie najlepiej odpalić Git Bash):
 ```git
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
@@ -37,7 +37,7 @@ W katalogu `~/.ssh/` tworzymy plik `config`. W Windowsie lokalizację tą znajdz
 
 ```git
 #Pierwsze konto
-Host first-account
+Host first
   HostName github.com
   User git
   IdentityFile ~/.ssh/first
@@ -76,9 +76,9 @@ Tak samo robimy z drugim repozytorium i z drugim kontem:
 git clone git@second:Company/projekt_firmowy.git
 ```
 
-___
+## Zmiana *git identity*
 
-Następnie przechodzimy do wybranego repozytorium i sprawdzamy, *jako kto wrzucimy kod*. Możemy to zrobić za pomocą poleceń:
+Przechodzimy do wybranego repozytorium i sprawdzamy, *jako kto wrzucimy kod*. Możemy to zrobić za pomocą poleceń:
 ```git
 git config user.name
 git config user.email
@@ -90,9 +90,9 @@ git config user.name "Nowe Imie"
 git config user.email "Nowy@email.pl"
 ```
 
-Możemy przetestować zmiany, tworząc w obu repozytoriach przykładowego commita i wrzucając go za pomocą zwykłego:
+Zmiany możemy przetestować, tworząc w obu repozytoriach przykładowego `commita` i wpisując komendę
 ```git
-git push
+git log
 ```
 
 
