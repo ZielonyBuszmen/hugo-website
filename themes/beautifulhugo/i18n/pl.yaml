@@ -34,7 +34,7 @@
 - id: gcseLabelShort
   translation: "Szukaj"
 - id: gcseLabelLong
-  translation: "Szukaj {{ .Site.Title }}"
+  translation: "Szukajka"
 - id: gcseClose
   translation: "Zamknij"
 
