@@ -12,15 +12,15 @@ tags:
   - Laravel
 
 ---
-Na necie jest cała masa poradników, jak zainstalować Angulara2. Tylko wszystkie mają pewien problem - Angular instaluje się jako &#8222;stand-alone&#8221;. Jak więc go dodać do Laravela? Jest jeden prosty sposób &#8211; korzystać z Laravela jako API, a cała aplikacja (front) powinna być zrobiona w Angularze2. Takie rozwiązanie mnie nie satysfakcjonowało, więc spróbowałem **zainstalować Angulara razem z Laravelem **, tak aby korzystać z odpowiedniej struktury katalogów oraz nie zaburzyć porządku w aplikacji Laravela.
+Na necie jest cała masa poradników, jak zainstalować Angulara2. Tylko wszystkie mają pewien problem – Angular instaluje się jako „stand-alone”. Jak więc go dodać do Laravela? Jest jeden prosty sposób – korzystać z Laravela jako API, a cała aplikacja (front) powinna być zrobiona w Angularze2. Takie rozwiązanie mnie nie satysfakcjonowało, więc spróbowałem **zainstalować Angulara razem z Laravelem**, tak aby korzystać z odpowiedniej struktury katalogów oraz nie zaburzyć porządku w aplikacji Laravela.
 
-Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść nie tak, więc trzeba przygotować spory zapas czasu na poniższą _zabawę_
+Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść nie tak, więc trzeba przygotować spory zapas czasu na poniższą *zabawę*
 
 # Zaczynamy
 
   1. W głównym katalogu szukamy pliku `package.json` i podmieniamy w nim kod na poniższy: 
 ```javascript
-  {
+{
   "private": true,
   "scripts": {
     "prod": "gulp --production",
@@ -69,31 +69,30 @@ Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść 
   }
 }
 ```
-    Jest to plik, który &#8222;zarządza&#8221; pakietami Node.js. Dzięki niemu w łatwy sposób w dalszej części ściągniemy wszystkie wymagane biblioteki.
+Jest to plik, który "zarządza" pakietami Node.js. Dzięki niemu w łatwy sposób w dalszej części ściągniemy wszystkie wymagane biblioteki.
  
 
   2. W głównym katalogu tworzymy plik `tsconfig.json`
 ```javascript
   {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "removeComments": false,
+      "noImplicitAny": false
+    }
   }
-}
 ```
-    
-    Plik konfiguracyjny dla skryptu kompilującego typescript do JSa
+Plik konfiguracyjny dla skryptu kompilującego typescript do JSa
 
 
   3. Tworzymy plik `typings.json` również w głównym katalogu
 ```javascript
-  {
+{
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160725163759",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
@@ -105,25 +104,21 @@ Na samym początku uprzedzam, że roboty jest sporo, coś zawsze może pójść 
 ```cmd
     npm install
 ```
-    Może to trochę potrwać, bo właśnie teraz do katalogu  _node_modules_ pobierają się wszystkie paczki wymienione w pliku _package.json_
+Może to trochę potrwać, bo właśnie teraz do katalogu  _node_modules_ pobierają się wszystkie paczki wymienione w pliku _package.json_
     
-      * Po tym przechodzimy do `node_modules/elixir-typescript/index.js` i komentujemy poniższą linijkę: 
+5. Po tym przechodzimy do `node_modules/elixir-typescript/index.js` i komentujemy poniższą linijkę: (nr 45)
 ```javascript
-  //.pipe($.concat(paths.output.name))
+//.pipe($.concat(paths.output.name))
 ```
+Jak by nie patrzeć to edytujemy plik "systemowy", nie powinno się tak robić. Niestety, w tym wypadku musimy. Bo gdy nie zakomentujemy tej linijki, skrypt kompilujący TS do JS wrzuci wszystko do jednego pliku app.js. A nie o to nam chodzi. Chcemy przecież, by kompilator TSa skompilował każdy plik oddzielnie. Stąd też taka mała zmiana w kodzie źródłowym. 
 
-        Jak by nie patrzeć to edytujemy plik &#8222;systemowy&#8221;, nie powinno się tak robić. Niestety, w tym wypadku musimy. Bo gdy nie zakomentujemy tej linijki, skrypt kompilujący TS do JS wrzuci wszystko do jednego pliku app.js. A nie o to nam chodzi. Chcemy przecież, by kompilator TSa skompilował każdy plik oddzielnie. Stąd też taka mała zmiana w kodzie źródłowym. </li> 
+6. Przechodzimy do `resources/assets/typescript` i tworzymy w nim 3 pliki: `app.component.ts`, `app.module.ts`, `main.ts`. (Gdyby folder _typescript_ nie istniał, to go oczywiście tworzymy 😉 ).    <br />   
+Będą to pliki naszej aplikacji Angularowej. Tutaj będziemy rozszerzać jej funkcjonalność o nowe komponenty.
 
-      * Przechodzimy do `resources/assets/typescript` i tworzymy w nim 3 pliki: `app.component.ts`, `app.module.ts`, `main.ts`. (Gdyby folder _typescript_ nie istniał, to go oczywiście tworzymy 😉 )
-  
  
-            Będą to pliki naszej aplikacji Angularowej. Tutaj będziemy rozszerzać jej funkcjonalność o nowe komponenty.
-  
-     
-        **app.module.ts**
-            
-            <pre class="brush: jscript; title: resources/assets/typescript/app.module.ts; notranslate" title="resources/assets/typescript/app.module.ts">///&lt;reference path="../../../typings/index.d.ts"/&gt;
-
+**app.module.ts**
+```typescript
+///<reference path="../../../typings/index.d.ts"/>
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
@@ -133,46 +128,38 @@ import { AppComponent }   from './app.component';
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
-</pre>
-            
-            &nbsp;
-            
-            **app.component.ts**
-            
-            <pre class="brush: jscript; title: resources/assets/typescript/app.component.ts; notranslate" title="resources/assets/typescript/app.component.ts">import { Component } from '@angular/core';
+```
+
+**app.component.ts**    
+```typescript
+import { Component } from '@angular/core';
 @Component({
     selector: 'my-app',
     template: '
-
-&lt;h1&gt;Moja angularowa aplikacja działa! Jak trzeba&lt;/h1&gt;
-
-
+ 
+<h1>Moja angularowa aplikacja działa! Jak trzeba</h1>
+ 
+ 
 '
 })
 export class AppComponent { }
+```
 
-</pre>
-            
-            &nbsp;
-            
-            **main.ts**
-            
-            <pre class="brush: jscript; title: resources/assets/typescript/main.ts; notranslate" title="resources/assets/typescript/main.ts">import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+**main.ts**
+```typescript
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);
-
-</pre>
+```
         
-        &nbsp;
-        
-        &nbsp;
-        
-          * Przechodzimy do głównego katalogu i do pliku `gulpfile.js` wklejamy poniższy kod <pre class="brush: jscript; title: gulpfile.js; notranslate" title="gulpfile.js">const elixir = require('laravel-elixir');
-
+7.&nbsp;Przechodzimy do głównego katalogu i do pliku `gulpfile.js` wklejamy poniższy kod 
+```javascript
+const elixir = require('laravel-elixir');
+ 
 require('laravel-elixir-vue');
 require('elixir-typescript');
-
+ 
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -183,10 +170,10 @@ require('elixir-typescript');
  | file for our application, as well as publishing vendor resources.
  |
  */
-
+ 
 elixir(function(mix){
-
-	/* Copy angular2 JS vendor files */
+ 
+    /* Copy angular2 JS vendor files */
     mix
     .copy('node_modules/@angular', 'public/js/angular2_vendor/@angular')
     .copy('node_modules/anular2-in-memory-web-api', 'public/js/angular2_vendor/anular2-in-memory-web-api')
@@ -195,7 +182,7 @@ elixir(function(mix){
     .copy('node_modules/systemjs', 'public/js/angular2_vendor/systemjs')
     .copy('node_modules/rxjs', 'public/js/angular2_vendor/rxjs')
     .copy('node_modules/zone.js', 'public/js/angular2_vendor/zone.js');
-   
+    
     /* Angular2 Scripts */
     mix.typescript(
         [
@@ -216,28 +203,25 @@ elixir(function(mix){
         }
     );
 });
-</pre>
+```
             
 Wykorzystujemy tutaj dobrodziejstwo Laravela i jego  _Elixir Mix_. Więcej do poczytania w dokumentacji wersji 5.3: [laravel.com/docs/5.3/elixir](https://laravel.com/docs/5.3/elixir)
 
-&nbsp;
 
-&nbsp;
-
-  * Tworzymy folder w `public/app_angular2` i wpisujemy komendę w _terminalu_ 
-    <pre>gulp</pre>
-    
-    &nbsp;
-    
-    &nbsp;
-                
-                  * W katalogu `/public` tworzymy plik **systemjs.config.js** <pre class="brush: jscript; title: ; notranslate" title="">/**
+8.&nbsp;Tworzymy folder w `public/app_angular2` i wpisujemy komendę w _terminalu_ 
+```html
+gulp
+```
+   
+9.&nbsp;W katalogu `/public` tworzymy plik **systemjs.config.js** 
+```javascript
+/**
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
 (function (global) {
     System.config({
-
+ 
         // map tells the System loader where to look for things
         map: {
             // our app is within the app folder
@@ -271,40 +255,38 @@ Wykorzystujemy tutaj dobrodziejstwo Laravela i jego  _Elixir Mix_. Więcej do po
         }
     });
 })(this);
-</pre>
-                    
-                    &nbsp;
-                    
-                    &nbsp;
-                    
-                      * Na koniec tworzymy widok, w którym wklejamy skrypt inicjalizujący aplikację Angulara2. Nie zapomnijmy go wywołać w kontrolerze, albo dodać do routa 🙂 <pre class="brush: xml; title: ; notranslate" title="">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-    &lt;head&gt;
-        &lt;meta charset="utf-8"&gt;
-        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+```
 
-        &lt;title&gt;Laravel 5.3 - Angular 2&lt;/title&gt;
-
-        &lt;!-- 1. Load libraries --&gt;
-        &lt;!-- Polyfill(s) for older browsers --&gt;
+10.&nbsp;Na koniec tworzymy widok, w którym wklejamy skrypt inicjalizujący aplikację Angulara2. Nie zapomnijmy go wywołać w kontrolerze, albo dodać do routa 🙂 
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+        <title>Laravel 5.3 - Angular 2</title>
+ 
+        <!-- 1. Load libraries -->
+        <!-- Polyfill(s) for older browsers -->
         {{ Html::script('core-js/client/shim.min.js') }}
         {{ Html::script('zone.js/dist/zone.js') }}
         {{ Html::script('reflect-metadata/Reflect.js') }}
         {{ Html::script('systemjs/dist/system.src.js') }}
         {{ Html::script('systemjs.config.js') }}
-
-   
-    &lt;script&gt;
+ 
+    
+    <script>
         System.import('app_angular2').catch(function(err){ console.error(err); });
-    &lt;/script&gt;
-
-    &lt;/head&gt;
-    &lt;!-- 3. Display the application --&gt;
-    &lt;body&gt;
-    &lt;my-app&gt;Loading...&lt;/my-app&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+    </script>
+ 
+    </head>
+    <!-- 3. Display the application -->
+    <body>
+    <my-app>Loading...</my-app>
+    </body>
+</html>
+```
                     
-                      * Vua La! Po uruchomieniu aplikacji powinniśmy zobaczyć napis **_Moja angularowa aplikacja działa! Jak trzeba</b>_. Nie pozostaje nam nic innego, jak rozpoczęcie tworzenia kodu. Warto dodać, że po każdej zmianie pliku w folderze typescripts musimy wpisać komendę `gulp`, która zaktualizuje nam pliki js. Aby proces ten zautomatyzować, możemy wpisać komendę  `gulp watch`, która rozwiąże problem </ol>
+11.&nbsp;Vua La! Po uruchomieniu aplikacji powinniśmy zobaczyć napis **_Moja angularowa aplikacja działa! Jak trzeba</b>_. Nie pozostaje nam nic innego, jak rozpoczęcie tworzenia kodu. Warto dodać, że po każdej zmianie pliku w folderze typescripts musimy wpisać komendę `gulp`, która zaktualizuje nam pliki js. Aby proces ten zautomatyzować, możemy wpisać komendę  `gulp watch`, która rozwiąże problem

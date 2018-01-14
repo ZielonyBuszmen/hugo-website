@@ -102,7 +102,7 @@ Kolejną funkcją będzie funkcja przeszukująca pod-węzły pod kątem danej wa
 		{
 			return this;
 		}
-		else if (value &lt; this.number)    //2
+		else if (value < this.number)    //2
 		{
 			if (this.left == null)  //3
 			{
@@ -114,7 +114,7 @@ Kolejną funkcją będzie funkcja przeszukująca pod-węzły pod kątem danej wa
 			}
 
 		}
-		else if (value &gt; this.number)  //5
+		else if (value > this.number)  //5
 		{
 			if (this.right == null)   //6
 			{
@@ -157,7 +157,7 @@ Gdy żaden z tych 3 **ifów** się nie wykona, to pozostaje nam zwrócić null *
 
 	public void Add(int value)        //0
 	{
-		if (value &gt;= this.number)    //1
+		if (value >= this.number)    //1
 		{
 			if (this.right == null) 
 			{
@@ -168,7 +168,7 @@ Gdy żaden z tych 3 **ifów** się nie wykona, to pozostaje nam zwrócić null *
 				this.right.Add(value);    //3
 			}
 		}
-		else if (value &lt; this.number)    //4
+		else if (value < this.number)    //4
 		{
 			if (this.left == null)
 			{
@@ -511,8 +511,5 @@ namespace tree
 
 ```
 
-&nbsp;
 
 ## [Pobierz wszystko w PDF](/files/drzewo.pdf)
-
-&nbsp;
