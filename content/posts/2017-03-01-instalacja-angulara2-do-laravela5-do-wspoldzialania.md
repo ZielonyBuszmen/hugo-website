@@ -289,4 +289,4 @@ gulp
 </html>
 ```
                     
-11.&nbsp;Vua La! Po uruchomieniu aplikacji powinniśmy zobaczyć napis **_Moja angularowa aplikacja działa! Jak trzeba</b>_. Nie pozostaje nam nic innego, jak rozpoczęcie tworzenia kodu. Warto dodać, że po każdej zmianie pliku w folderze typescripts musimy wpisać komendę `gulp`, która zaktualizuje nam pliki js. Aby proces ten zautomatyzować, możemy wpisać komendę  `gulp watch`, która rozwiąże problem
+11.&nbsp;Vua La! Po uruchomieniu aplikacji powinniśmy zobaczyć napis **_Moja angularowa aplikacja działa! Jak trzeba</b>_**. Nie pozostaje nam nic innego, jak rozpoczęcie tworzenia kodu. Warto dodać, że po każdej zmianie pliku w folderze typescripts musimy wpisać komendę `gulp`, która zaktualizuje nam pliki js. Aby proces ten zautomatyzować, możemy wpisać komendę  `gulp watch`, która rozwiąże problem
