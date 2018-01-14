@@ -17,6 +17,11 @@ p {
 .post-entry {
   padding-top: 15px;
   padding-bottom: 15px;
+  word-wrap : break-word;
+}
+
+.blog-post {
+  word-wrap : break-word;
 }
 
 .post-preview .post-subtitle {
