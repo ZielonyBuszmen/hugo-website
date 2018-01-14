@@ -13,7 +13,7 @@ tags:
   - Testy
 
 ---
-Krótki wpis, szybka porada &#8211; jak uruchomić testy jednostkowe Laravela w PHPStorm?
+Krótki wpis, szybka porada - jak uruchomić testy jednostkowe Laravela w PHPStorm?
 
 Przechodzimy do **Settings** _(Ctrl + Alt + S)_, klikamy **Languages & Frameworks**, następnie **PHP** i wybieramy **PHPUnit**.
 
