@@ -11,6 +11,11 @@ tags:
   - Projekty
 
 ---
+Celem projektu było napisanie w pełni działającej aplikacji e-learningowej, umożliwiającej wysyłanie materiałów, tworzenie testów, wystawianie ocen i administrowanie kursem. Do użytku dla uczniów i nauczycieli. Zawierającą zaawansowany panel administracyjny dla nauczycieli i adminów. Projekt został stworzony na potrzeby zaliczenia programowania w czwartej klasie technikum informatycznego. Tworzony na przełomie października i listopada 2015 przez dwóch "mózgów", których dane można znaleźć w wysłanych commitach.
+
+____    
+
+# Info
 ```git 
 git clone https://github.com/bartoszgajda55/projektMoodle.git
 ``` 

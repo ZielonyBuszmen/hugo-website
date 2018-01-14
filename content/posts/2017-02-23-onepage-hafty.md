@@ -11,6 +11,11 @@ tags:
 
 ---
 
+Projekt na zlecenie. Z założenia miała być to strona do auto-prezentacji, na której klient może pokazywać swoje dzieła. Dlatego też głównym miejscem na stronie jest galeria zdjęć uzupełniona dodatkowo o krótką notkę biograficzną. Wszystko wykonane jako 'OnePage'. Strona korzysta z ViewComposerów oraz została "zlokalizowana" w trzech językach.
+
+___   
+
+# Info
 ```git 
 git clone https://github.com/ZielonyBuszmen/onePage-hafty.git
 ``` 
@@ -28,87 +33,93 @@ git clone https://github.com/ZielonyBuszmen/onePage-hafty.git
 
 Layout został podzielony na elementy, które dowolnie można usuwać lub zmieniać ich kolejność:
 
-<pre class="brush: php; title: resources/views/default.blade.php; notranslate" title="resources/views/default.blade.php">&lt;!DOCTYPE html&gt;
-&lt;html lang="pl"&gt;
-
-&lt;head&gt;
+**resources/views/default.blade.php**
+```html
+<!DOCTYPE html>
+<html lang="pl">
+ 
+<head>
     @include('includes.head')
-&lt;/head&gt;
-
-&lt;body&gt;
-
-    &lt;!-- Navigation --&gt;
+</head>
+ 
+<body>
+ 
+    <!-- Navigation -->
     @include('includes.navigation')
-
-    &lt;!-- Header --&gt;
+ 
+    <!-- Header -->
     @include('includes.header')
-
-    &lt;!-- About --&gt;
+ 
+    <!-- About -->
     @include('includes.about')
-
-    &lt;!-- Blueimp gallery LightBox -&gt;
+ 
+    <!-- Blueimp gallery LightBox ->
     @include('includes.gallery_blueimp')
-
-    &lt;!-- Guest Book --&gt;
+ 
+    <!-- Guest Book -->
     @include('includes.guest_book')
-
-    &lt;!-- Footer --&gt;
+ 
+    <!-- Footer -->
     @include('includes.footer')
-
-    &lt;!-- Bottom scripts --&gt;
+ 
+    <!-- Bottom scripts -->
     @include('includes.bottom_scripts')
-
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>
+ 
+</body>
+</html>
+```
 
 W kodzie zaimplementowałem możliwość zmiany języka serwisu. Jest to brzydki kod, bo napisany w roucie zamiast w kontrolerze (lub jakiejś innej stosownej do tego klasie).
 
-<pre class="brush: php; title: routes/web.php; notranslate" title="routes/web.php">Route::get('/locale/{locale}', function ($locale, \Illuminate\Http\Request $request) {
+**routes/web.php**
+```php
+Route::get('/locale/{locale}', function ($locale, \Illuminate\Http\Request $request) {
     App::setLocale($locale);
-    $request-&gt;session()-&gt;put('lang', $locale);
+    $request->session()->put('lang', $locale);
     return redirect("/");
-})-&gt;where("locale", "(pl|en|es)");
-</pre>
+})->where("locale", "(pl|en|es)");
+```
 
 ## Dodawanie nowych zdjęć:
 
-  * Duże zdjęcia znajdują się w `public/img/hafty`. Na podstawie tego katalogu skrypt tworzy array&#8217;a z odnośnikami do zdjęć.
+  * Duże zdjęcia znajdują się w `public/img/hafty`. Na podstawie tego katalogu skrypt tworzy array'a z odnośnikami do zdjęć.
   * Miniaturki są przechowywane w folderze `public/img/miniaturki`. Miniaturka musi nazywać się tak samo jak duże zdjęcie. Powinna mieć wymiary `400px x 300px`.
-  * Ustawienia odnośnie lokalizacji folderu ze zdjęciami oraz cały skrypt który przeszukuje te foldery znajdziemy w pliku `app/Repositories/PhotoRepository.php`. Metoda `getAll()` zwraca gotowego array&#8217;a z linkami do zdjęć i miniaturek. Wynik tej funkcji jest zwracany do widoku `resources/views/includes/gallery_blueimp.blade.php`. Nie jest to robione standardowo przez kontroler lub router, tylko poprzez tzw. &#8222;ViewComposer&#8221; o nazwie `PhotoComposer` (lokalizacja `app/Console/Http/ViewComposers/PhotoComposer.php`). Te dane są zwracane do zmiennej `$photos`, którą możemy używać w widoku.
-  * Repozytorium do ViewComposera jest &#8222;wstrzykiwane&#8221; dzięki mechanizmowi Dependency Injection
+  * Ustawienia odnośnie lokalizacji folderu ze zdjęciami oraz cały skrypt który przeszukuje te foldery znajdziemy w pliku `app/Repositories/PhotoRepository.php`. Metoda `getAll()` zwraca gotowego array'a z linkami do zdjęć i miniaturek. Wynik tej funkcji jest zwracany do widoku `resources/views/includes/gallery_blueimp.blade.php`. Nie jest to robione standardowo przez kontroler lub router, tylko poprzez tzw. *ViewComposer* o nazwie `PhotoComposer` (lokalizacja `app/Console/Http/ViewComposers/PhotoComposer.php`). Te dane są zwracane z kolei do zmiennej `$photos`, którą możemy używać w widoku.
+  * Repozytorium do ViewComposera jest *wstrzykiwane* dzięki mechanizmowi Dependency Injection
 
 Sam ViewComposer prezentuje się następująco. Jak widzimy, repozytorium z fotografiami jest &#8222;wstrzykiwane&#8221; dzięki mechanizmowi Dependency Injection.
 
-<pre class="brush: php; title: ; notranslate" title="">&lt;?php namespace App\Http\ViewComposers; 
-
+```php
+<?php 
+namespace App\Http\ViewComposers; 
+ 
 use App\Repositories\PhotoRepository; 
 use Illuminate\View\View; 
-
+ 
 class PhotoComposer 
 { 
     protected $photos; 
     public function __construct(PhotoRepository $photos) 
     { 
-        $this-&gt;photos = $photos;
+        $this->photos = $photos;
     }
-
+ 
     public function compose(View $view)
     {
-        $view-&gt;with('photos', $this-&gt;photos-&gt;getAll());
+        $view->with('photos', $this->photos->getAll());
     }
 }
-</pre>
+```
 
 ViewComposer jest wykonywany dzięki ServiceProviderowi:
-
-<pre class="brush: php; highlight: [18,19,20]; title: ; notranslate" title="">&lt;?php
-
+*linie 18-20*
+```php
+<?php
 namespace App\Providers;
-
+ 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-
+ 
 class ComposerServiceProvider extends ServiceProvider
 {
     /**
@@ -122,9 +133,9 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'includes.gallery_blueimp', 'App\Http\ViewComposers\PhotoComposer'
         );
-
+ 
     }
-
+ 
     /**
      * Register the service provider.
      *
@@ -134,11 +145,11 @@ class ComposerServiceProvider extends ServiceProvider
     {
         //
     }
-}</pre>
-
+}
+```
 ## Instalacja
 
-Standardowo -> pobieramy projekt do folderu `htdocs` Xamppa, albo do `www` Wampa (lampa, trampa, itp). Następnie otwieramy terminal (konsolę) w folderze z projektem i wpisujemy `composer install`, a potem `npm install`. Tak, projekt wymaga zainstalowanego Composera oraz Node.js.
+Standardowo -> pobieramy projekt do folderu `htdocs` Xamppa, albo do `www` Wampa (lampa, itp). Następnie otwieramy terminal (konsolę) w folderze z projektem i wpisujemy `composer install`, a potem `npm install`. Tak, projekt wymaga zainstalowanego Composera oraz Node.js.
 
 Być może będzie wymagane odblokowanie `php_intl.dll` w pliku `php.ini` w konfiguracji naszego serwera, ale to już jest spowodowane przez wymagania samego Laravela.
 
