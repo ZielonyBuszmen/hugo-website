@@ -54,7 +54,7 @@ disqusShortname = "zielonybuszmen-github-io"
     [[menu.main]]
     identifier = "projekty"
     name       = "Projekty"
-    url        = "/categories/projekty/"
+    url        = "https://zielonybuszmen.github.io/MyProjects/"
     weight     = 1
 
     [[menu.main]]
