@@ -13,8 +13,9 @@ tags:
 
 ---
 
-Domyślna dokumentacja Reduxa podaje jeden przepis na pisanie reducerów. A wygląda on tak: 
+Dokumentacja Reduxa, pokazująca jego podstawy, podaje jeden przepis na pisanie reducerów. Nie jest on skomplikowany, gdyż korzysta z każdemu znanej konstrukcji `switch() case`. 
 
+Wygląda on tak: 
 ```javascript
 function todoApp(state, action) {
   switch (action.type) {
@@ -28,29 +29,28 @@ function todoApp(state, action) {
   }
 }
 ```
-
-Składnia stanie się szybko nieczytelna, gdy zaczniemy wrzucać coraz więcej akcji i kodu obrabiającego stan aplikacji.
+Gdy zaczniemy dorzucać kolejne akcje, składnia stanie się szybko nieczytelna.
 
 A co, gdyby reducer wyglądał tak:
-```javascript
-{
-  [SET_VISIBILITY_FILTER](state, action) {
-    const newState = {...state, visibilityFilter: action.filter};
-    return newState;
-  },
-  [SET_PRIVS]: setNewPrivs,
-}
-```
-Składnia jest o wiele czytelniejsza, nie ma problemu z zasięgiem stałych, nie trzeba pamiętać o przypadku `default: return state;`. `setNewPrivs` jest funkcją o implementacji:
-
 ```javascript
 function setNewPrivs(state, action) {
   const newState = {...state, newPrivs: action.privs};
   return newState;
 }
+// ...
+// obiekt z akcjami
+{
+  [SET_VISIBILITY_FILTER](state, action) {
+    const newState = {...state, visibilityFilter: action.filter};
+    return newState;
+  },
+  [SET_PRIVS] : setNewPrivs,
+}
 ```
 
-Spróbujmy więc zaimplementować najpierw funkcję, która będzie przyjmowała taki obiekt, i tworzyła na jego podstawie działający reducer.
+Składnia jest o wiele czytelniejsza, nie ma problemu z zasięgiem stałych, nie trzeba pamiętać o przypadku `default: return state;`.
+
+Spróbujmy więc zaimplementować funkcję, która będzie przyjmowała taki obiekt z akcjami, i tworzyła na jego podstawie działający reducer. Nazwiemy ją `createReducer`:
 
 ```javascript
 export const createReducer = (initialState, handlers) => {
@@ -63,8 +63,9 @@ export const createReducer = (initialState, handlers) => {
   }
 };
 ```
-Parametr `initialState` to początkowy stan danego reducera, natomiast `handlers` to nasz obiekt, który stworzyliśmy wyżej.
-Ta funkcja (`createReducer`) zwraca inną funkcję, o nazwie `reducer`. Jednak nie trzeba nazywać jej wogóle, można również zwracać _arrow function_. Funkcja ta to zwykły reducer, inaczej zapisany `switch` z pierwszego listingu. Jej działanie jest następujące. Sprawdza, czy obiekt przekazany do `handlers` zawiera klucz o takiej nazwie, jak akcja, która została przekazana. Jeśli go odszuka, to go zwraca. A z racji tego, że każdy klucz ma funkcję zamiast wartości, to ją wywołuje i przekazuje do niej parametry `state` oraz `action`. Gdy taki klucz nie zostanie odnaleziony, wówczas zwracamy domyślny state, bez żadnych zmian.
+Parametr `initialState` to początkowy stan danego reducera, natomiast `handlers` to nasz obiekt z akcjami (ten przykładowy, pokazany wyżej).
+
+Funkcja `createReducer` zwraca inną funkcję, o nazwie `reducer`. Jednak nie trzeba nazywać jej w ogóle, można również zwracać _arrow function_. Funkcja ta, to nic innego, jak inaczej zapisany `switch`. Jej działanie jest następujące. Sprawdza, czy obiekt przekazany do `handlers` zawiera klucz o takiej nazwie, jak akcja, która została przekazana. Jeśli go odszuka, to go zwraca. A z racji tego, że każdy klucz zamiast wartości, ma przypisaną funkcję, to ją wywołuje i przekazuje do niej parametry `state` oraz `action`. Gdy taki klucz nie zostanie odnaleziony, wówczas zwraca domyślny `state`, bez żadnych zmian.
 
 Teraz możemy stworzyć reducer, który będzie wyglądał tak:
 
@@ -74,10 +75,16 @@ export const userReducer = createReducer(null, {
     const newState = {...state, visibilityFilter: action.filter};
     return newState;
   },
-  [SET_PRIVS]: setNewPrivs,
+  [SET_PRIVS] : setNewPrivs,
 });
 ```
 
-Pierwszy parametr, który jest tutaj `nullem`, to stan domyślny (parametr `initialState`).
+Pierwszy parametr, który jest tutaj `nullem`, to domyślny stan tego reducera (parametr `initialState`).
 
-Stworzony tak reducer możemy spokojnie opakować w combineReducers, w sposób jaki robiliśmy to normalnie.
+Tak stworzony reducer możemy spokojnie opakować w `combineReducers` w sposób, jaki robiliśmy to normalnie:
+```javascript
+export const reducer = combineReducers({
+    userReducer,
+    messageReducer,
+});
+```
