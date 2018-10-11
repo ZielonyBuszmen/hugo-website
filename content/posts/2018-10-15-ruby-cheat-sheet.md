@@ -158,19 +158,107 @@ end
 Dziedziczenie jest realizowane operatorem `<`. Aby odwołać się do metody z klasy nadrzędnej, wywołujemy metodę `super()` (możliwa notacja bez nawiasów - `super`).
 
 
-### Metody i zmienne klasy
+### Zmienne i metody klasy
+```ruby
+class Car
+  @@amount = 0 # zmienna klasowa
+
+  def initialize
+    @@amount += 1
+  end
+
+  def self.count # metoda klasy
+    @@amount
+  end
+
+  def count_normally # metoda instancji
+    @@amount
+  end
+end
+
+Car.new
+Car.new
+bla = Car.new
+
+p bla.count_normally # => 3
+p Car.count # => 3
+```
+
+Zmienna `amount` jest taka sama we wszystkich klasach, które by dziedziczyły po klasie `Car`
+
+### Inne:
+#### Konstrola dostępu (private, public)
+
+```ruby
+class Probe
+  private # wszystkie metody będą prywatne
+
+  def deploy 
+    # ...
+  end
+
+  public # wszystkie metody będą publiczne
+
+  def take_sample
+    # ...
+  end
+
+  def turn_off
+    # ...
+  end
+end
+```
+
+Identyczne działanie zapewnia konstrukcja:
+
+```ruby
+class Probe
+  def deploy
+  end
+
+  def take_sample
+  end
+
+  def turn_off
+  end
+
+  private :deploy # wpisujemy metody, które mają być prywatne
+  public :take_sample, :turn_off # to jest nadmiarowe, bo domyślnie wszystkie metody są publiczne
+end
+```
 
 
-### Inne
-#### Zmiana widzialności metod i zmiennych (private, public)
-#### Monkey patching oraz open classes
+#### Monkey patching & Open classes
+Termin __Open classes__ oznacza, że możemy deklarować jedną klasę w wielu miejscach, dodając jej po jednej metodzie. Możemy też dowolnie nadpisywać jakieś metody innymi. Dzięki temu, Ruby umożliwia tzw __Monkey Patching__, czyli np dodawanie do wbudowanej klasy String nowych metod. Możliwe też jest ich nadpisywanie:
+
+```ruby
+class String
+  def cos_tam
+    'nic konkretnego'
+  end
+end
+
+a = 'abcdef'
+p a.length # => 6 - wbudowana metoda w string
+p a.cos_tam # => "nic konkretnego" - nasza nowa metoda
+```
 
 
 
+# Kontrola przepływu
 
+### Warunki (rozgałęzianie)
+### Przypisywanie warunkowe
+### Konstrukcja `case`
+### Pętle
+### Iteratory z blokami
+### Kontrola wykonywania pętli
+### Wyjątki
+#### Łapanie wyjątków
+#### Tworzenie wyjątków (rising exceptions)
+### 
+### 
 
-
-# Instrukcje warunkowe
 
 
 
