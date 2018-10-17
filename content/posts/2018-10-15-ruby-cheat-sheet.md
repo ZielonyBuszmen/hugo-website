@@ -111,6 +111,7 @@ Powyższa konstrukcja (`attr_accessor`) umożliwia odczyt i zapis zmiennej. Aby 
 
 
 ### Konstruktory - `initialize`
+
 ```ruby
 class Person
   def initialize(name, age, height)
@@ -127,6 +128,7 @@ Konstruktor tworzymy za pomocą metody `initialize`. Tworząc nowy obiekt, wywo�
 
 
 ### Dziedziczenie - **`<`**
+
 ```ruby
 class Probe
   def deploy
@@ -159,6 +161,7 @@ Dziedziczenie jest realizowane operatorem `<`. Aby odwołać się do metody z kl
 
 
 ### Zmienne i metody klasy
+
 ```ruby
 class Car
   @@amount = 0 # zmienna klasowa
@@ -187,6 +190,7 @@ p Car.count # => 3
 Zmienna `amount` jest taka sama we wszystkich klasach, które by dziedziczyły po klasie `Car`
 
 ### Inne:
+
 #### Konstrola dostępu (private, public)
 
 ```ruby
@@ -244,19 +248,203 @@ p a.cos_tam # => "nic konkretnego" - nasza nowa metoda
 ```
 
 
+# Sterowanie przepływem
 
-# Kontrola przepływu
+### Warunki
 
-### Warunki (rozgałęzianie)
+```ruby
+if can_run?
+  run
+else
+  wait
+end
+
+message = if counter > 10 then 'Go out' else 'Wait' end
+
+run if can_run?
+
+if fuel_level > 50
+  set_fuel_light('green')
+elsif fuel_level > 24
+  set_fuel_light('yellow')
+end
+```
+
+- `false` i `nil` są traktowane jako **`false`**
+- reszta, czyli `true`, `0`, `''` (pusty string), `[]` (pusta tablica) - są traktowane jako **`true`**
+- konwertowanie do boola można dokonać operatorem `!!`, np `!![]`
+
+```ruby
+# if not == unless
+
+unless fuel_level < 25
+  launch
+end
+
+launch unless fuel_level < 25
+
+
+# Ternary operator ?: (operator trójargumentowy)
+can_launch ? launch : stop
+```
+
 ### Przypisywanie warunkowe
+
+```ruby
+# przypisze się tylko wtedy, gdy ship nie ma wartości
+ship ||= Spaceship.new
+ship = Spaceship.new unless ship
+```
+
 ### Konstrukcja `case`
+
+```ruby
+case distance_from_here
+when 'far away'
+  go_close
+when 'close to'
+  dock
+else
+  alarm 'error'
+end
+
+# case zwraca także wartości
+result = case distance_from_here
+         when 'far away'
+           100
+         when 'close to'
+           50
+         end
+         
+# bardziej zwięzła forma ze słówkiem then
+result = case distance_from_here
+         when 'far away' then 100
+         when 'close to' then 50
+         end
+```
+
+
 ### Pętle
-### Iteratory z blokami
+- **pętla `while`** - trzy sposoby zapisu:
+
+```ruby
+while hight_alert?
+  sound_system.alarm
+end
+
+while hight_alert? do sound_system.alarm end
+
+sound_system.alarm while hight_alert?
+```
+
+- **pętla `until`**, czyli while not (dopóki nie):
+
+```ruby 
+until no_fuel?
+  accelerate
+end
+
+until no_fuel? do accelerate end
+
+accelerate until no_fuel?
+```
+
+- **`begin/end`** - wykona się przynajmniej raz, nawet jeśli warunek jest od początku fałszywy:
+
+```ruby
+begin
+  light.start_falshing
+  sound.play_siren
+end while alarm?
+```
+
+- **`for`**:
+
+```ruby
+for i in [3, 2, 1]
+  puts i
+end
+
+# wyświetli liczby od 1 do 15 (z zakresu - rage)
+for i in (1..15)
+  puts i
+end
+```
+
+### Iteratory i bloki
+
+Blok zaczyna się od `do`, kończy na `end`. Jest to _specjalny_ argument przekazywany do funkcji. Konstrukcja `|element|` to parametr
+```ruby
+[1, 2, 3].each do |element|
+  puts element
+end
+
+# równoznaczne z wcześniejszym
+[1, 2, 3].each {|element| puts element}
+
+
+# nieskończona pętla
+loop do
+  puts 'Infinity loop'
+end
+```
+
 ### Kontrola wykonywania pętli
+
+- **`next`**  przechodzi do kolejnej iteracji:
+
+```ruby
+while message = stream.get_message
+  next if message.type == 'sync'
+  message.process
+end
+```
+
+- **`break`**  wychodzi z pętli:
+
+```ruby
+while message = stream.get_message
+  message.process
+  break if message.type == 'undefined'
+end
+
+# instrukcja break może zwrócić wartość z pętli ('result')
+result = while message = stream.get_message
+           message.process
+           break 'result' if message.type == 'undefined'
+         end
+```
+
+- **`redo`**  powtarza iterację bez ponownego sprawdzania warunku:
+
+```ruby
+i = 0
+while i < 3
+  print 'Podaj liczbę: '
+  input = gets.to_i
+  redo if input <= 0
+  i += 1
+end
+```
+
+
 ### Wyjątki
+
+
+
 #### Łapanie wyjątków
+
+
+
 #### Tworzenie wyjątków (rising exceptions)
+
+
+
+
 ### 
+
+
+
 ### 
 
 
