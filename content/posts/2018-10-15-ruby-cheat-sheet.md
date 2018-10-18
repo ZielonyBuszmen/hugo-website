@@ -430,24 +430,143 @@ end
 
 ### Wyjątki
 
+#### Obsługiwanie wyjątków
+
+`begin` oraz `end` to _blok obsługi_ wyjątków. Łapanie ich odbywa się w sekcji `rescue`:
+
+```ruby
+def launch
+  begin
+    not_implemented_method # ta metoda nie istnieje
+  rescue 
+    puts 'Nie mozna wykonac'
+    return false
+  end
+end
+
+# to samo co wyżej, tylko blok (begin ... end) obejmuje całą funkcję
+def launch
+  not_implemented_method
+  turn_on_lights
+  true
+rescue
+  puts 'Nie mozna wykonac'
+  false 
+end
+```
+
+Możliwe jest łapanie wyjątków określonego typu i przechwytywanie ich właściwości. (`RuntimeError` dziedziczy po `StandardError`, a `StandardError` dziedziczy po `Exception`)
+```ruby
+def launch
+  not_implemented_method
+  turn_on_lights
+rescue StandardError => e
+  puts e.message
+  puts e.backtrace
+  false
+end
+
+# łapanie kilku wyjątków
+def launch
+  not_implemented_method
+  turn_on_lights
+rescue LightsError
+  puts 'Lights error'
+  true
+rescue StandardError => e
+  puts e.backtrace
+  false
+end
+```
+
+#### Rzucanie wyjątków
+
+```ruby
+# Wyrzucenie wyjątku z wiadomością
+def turn_on_lights
+  # ...
+  raise 'No energy' # ==> RuntimeError
+  # ...
+end
+
+# Wyrzucenie własnego wyjątku z wiadomością
+def turn_on_lights
+  # ...
+  raise LightError, 'No energy'
+  # ...
+end
+```
+
+#### `ensure` & `else`
+Kilka możliwych wyjść z metod utrudnia np. zamknięcie pliku. Z pomocą przychodzi blok `ensure`, który wykona się zawsze, nie ważne czy został złapany wyjątek, czy też nie.
+Sekcja `else` wykona się tylko wtedy, gdy funkcja nie rzuci żadnego wyjątku (`ensure` wykona się zaraz po `else`).
+
+```ruby
+def read_book
+  book = File.open('book.txt')
+  # ...
+  raise BookError, 'Bad book' if review.bad? # wyjście z metody
+  # ...
+  true # wyjście z metody
+rescue
+  # łapiemy błędy z funkcji
+  false # wyjście z metody
+else
+  puts 'Brak wyjątków, wszystko poszło jak trzeba'
+ensure
+  book.close if book # zamykamy plik
+end
+```
+
+#### Ponawianie prób 
+
+```ruby
+def fetch_book
+  book = API.request('/book/1')
+  # ...
+rescue RuntimeError => e
+  attempts ||= 0
+  attempts += 1
+  if attempts < 3 # próbujemy 3 razy połączyć się z API
+    puts e.message + '. Ponawiam próbę'
+    retry # przenosi wykonywanie na początek metody (bloku begin..end)
+  else
+    puts 'Niepowodzenie.'
+    raise
+  end
+end
+```
+
+# Typy wbudowane
 
 
-#### Łapanie wyjątków
+### Boolean
+### Liczby
+### String
+### Regex
+### Symbole
+### Tablice
+### Enumerable
+### Hashes
+### Zakresy (ranges)
+### Parallel Assigment
 
 
 
-#### Tworzenie wyjątków (rising exceptions)
+
+# Metody
 
 
 
 
-### 
+
+# Bloki, Stałe i Moduły
 
 
 
-### 
 
 
+# Informacje końcowe (putting ruby to work)
 
 
 
