@@ -537,38 +537,81 @@ rescue RuntimeError => e
 end
 ```
 
-# Typy wbudowane
+# Typy wbudowane - Ruby Standard Library
+- `true` to obiekt klasy `TrueClass`. `false` to obiekt klasy `FalseClass`
+- Po `Integer` dziedziczą dwie klasy: `Fixnum` (mniejsze liczby) oraz `Bignum` (duże liczby).
+- Liczbę`Float` zapisujemy jako `2.0`
+- Obiekty reprezentujące liczby są **read only**! Dlatego nie ma operatora `++` ani `--`
+- Wyświetlanie zanków specjalnych w stringach za pomocą `%q`:
+
+```ruby
+%q('Zielony' buszmen) # => 'Zielony' buszmen
+%q<'Zielony' buszmen>
+%q{'Zielony' buszmen}
+```
+
+- Podwójne cudzysłowy `"` umożliwiają _interpolację_:
+
+```ruby
+counter = 20
+qty = 2
+puts "Licznik: #{counter}"
+puts "Ilość: #{counter * qty}"
+```
+
+- Metody i operatory klasy `String`:
+
+```ruby
+puts "Hello world"[1] # => "e"
+puts "Hello world"[1, 4] # => "ello"
+
+a = "Hello world"
+a["world"] = "sky"
+puts a # => "Hello sky"
+
+puts "ble " * 3 # => "ble ble ble "
+
+puts "%05d" % 321 # => "00321"
+puts "%.4g" % 3.14151692653 # => "3.142"
+
+puts "aa" + "bbb" # => "aabbb"
+```
 
 
-### Boolean
-### Liczby
-### String
-### Regex
-### Symbole
 ### Tablice
-### Enumerable
-### Hashes
-### Zakresy (ranges)
-### Parallel Assigment
+```ruby
+arr = [] # pusta tablica
+arr = Array.new(3) # [nil, nil, nil]
+arr = Array.new(3, "abc") # ["abc", "abc", "abc"], każdy element to ten sam obiekt
+arr = Array.new(3) { "abc" } # ["abc", "abc", "abc"], każdy element to inny obiekt
+arr[-1] # ostatni element tablicy
+arr[1..3] # zwróci elementy od 1 do 3 włącznie
+```
 
 
+### Hashe
+```ruby
+h = {} # pusty hash
+h = {"min" => 0, "max" => 10}
+h["max"]
+
+z = {:min => 0, :max => 10}
+z = {min: 0, max: 10}
+z[:max]
+
+z.each { |k, v| puts "#{k}: #{v}" } # wyświetlenie wszystkich wartości hasha
+```
 
 
-# Metody
+### Zakresy (Range)
+```ruby
+(1..7)  # [1, 7]
+(1...7) # [1, 7)
+```
 
-
-
-
-
-# Bloki, Stałe i Moduły
-
-
-
-
-
-# Informacje końcowe (putting ruby to work)
-
-
-
-
+### Splat Operator
+```ruby
+a, *b = get_values  # a == 1, b == [2, 3, 4]
+a, *b, c = get_values  # a == 1, b == [2, 3], c == 4
+```
 
