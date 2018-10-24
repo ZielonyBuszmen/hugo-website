@@ -1,10 +1,9 @@
 ---
-title: Ruby cheat sheet
-subtitle: dopisac
+title: Ruby - ściągawka
 author: Krzysiek Komar
 type: post
-date: 2018-10-10
-url: /2018/10/10/ruby-cheat-sheet/
+date: 2018-10-24
+url: /2018/10/24/ruby-sciagawka/
 categories:
   - Programowanie
 tags:
