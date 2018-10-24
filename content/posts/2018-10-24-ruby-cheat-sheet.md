@@ -11,7 +11,7 @@ tags:
 
 ---
 
-Ruby jest dosyć rozbudowanym językiem pod względem semantyki. Sam język ma lukier składniowy (_syntax sugar_) prawie na każdy element. Dlatego poniżej wrzucam małą ściągawkę ze składni. Post jest dosyć rozbudowany, dlatego polecam go przeszukiwać, a nie czytać w całości.
+Ruby jest dosyć rozbudowanym językiem pod względem składni. Sam język ma lukier składniowy (_syntax sugar_) prawie na każdy element. Dlatego poniżej wrzucam małą ściągawkę ze składni. Post jest dosyć rozbudowany, dlatego polecam go przeszukiwać, a nie czytać w całości.
 
 ### _Spis treści_
     
@@ -39,7 +39,7 @@ Ruby jest dosyć rozbudowanym językiem pod względem semantyki. Sam język ma l
           - [Obsługiwanie wyjątków](#obsługiwanie-wyjątków)
           - [Rzucanie wyjątków](#rzucanie-wyjątków)
           - [`ensure` & `else`](#ensure-else)
-          - [Ponawianie prób](#ponawianie-prob)
+          - [Ponawianie prób](#ponawianie-prób)
 
 Warto zaznaczyć, że w Ruby wielkość znaków ma znaczenie. Nazwy zmiennych `Ble` oraz `ble` są rozróżniane i wykrywane jako dwie różne. Nazwy zmiennych, metod i symboli piszemy `snake_casem`. Klasy i moduły nazywamy `CamelCasem`. Jako `tab` używamy dwóch spacji.
 Więcej o konwencji nazwniczej [można znaleźć tutaj](https://github.com/rubocop-hq/ruby-style-guide#naming)
