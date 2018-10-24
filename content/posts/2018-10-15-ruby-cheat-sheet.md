@@ -12,27 +12,48 @@ tags:
 
 ---
 
-Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. Jakis tekst. 
+Ruby jest dosyć rozbudowanym językiem pod względem semantyki. Sam język ma lukier składniowy (_syntax sugar_) prawie na każdy element. Dlatego poniżej wrzucam małą ściągawkę ze składni. Post jest dosyć rozbudowany, dlatego polecam go przeszukiwać, a nie czytać w całości.
 
-Opisać w zdaniu, normalnie 
-Wielkość znaków ma znaczenie
-        
-   zmienne_sa_pisane_snaked_casem
-   
-   tab = 2 spacje
+### _Spis treści_
+    
+ - [Typy wbudowane](#typy-wbudowane)
+    - [Tablice](#tablice)
+    - [Hashe](#hashe)
+    - [Zakresy (Range)](#zakresy-range)
+    - [Splat Operator](#splat-operator)
+ - [Klasy i obiekty](#klasy-i-obiekty)
+     - [Akcesory](#akcesory)
+     - [Konstruktory](#konstruktory)
+     - [Dziedziczenie](#dziedziczenie)
+     - [Zmienne i metody klasy](#zmienne-i-metody-klasy)
+     - [Inne](#inne)
+          - [Konstrola dostępu](#konstrola-dostępu-private-public)
+          - [Monkey patching & Open classes](#monkey-patching-open-classes)
+ - [Sterowanie przepływem](#sterowanie-przepływem)
+     - [Warunki](#warunki)
+     - [Przypisywanie warunkowe](#przypisywanie-warunkowe)
+     - [Konstrukcja `case`](#konstrukcja-case)
+     - [Pętle](#pętle)
+     - [Iteratory i bloki](#iteratory-i-bloki)
+     - [Kontrola wykonywania pętli](#kontrola-wykonywania-pętli)
+     - [Wyjątki](#wyjątki)
+          - [Obsługiwanie wyjątków](#obsługiwanie-wyjątków)
+          - [Rzucanie wyjątków](#rzucanie-wyjątków)
+          - [`ensure` & `else`](#ensure-else)
+          - [Ponawianie prób](#ponawianie-prob)
 
+Warto zaznaczyć, że w Ruby wielkość znaków ma znaczenie. Nazwy zmiennych `Ble` oraz `ble` są rozróżniane i wykrywane jako dwie różne. Nazwy zmiennych, metod i symboli piszemy `snake_casem`. Klasy i moduły nazywamy `CamelCasem`. Jako `tab` używamy dwóch spacji.
+Więcej o konwencji nazwniczej [można znaleźć tutaj](https://github.com/rubocop-hq/ruby-style-guide#naming)
 
-
-- `a = 12`, `b = 'test'`, `c = false` - deklaracja zmiennych
-- `"test " * 4` zwróci `"test test test test"`
-- `[1, 2] * 2` zwróci `[1, 2, 1, 2]`
-- `a = a.strip` można zapisać jako `a.strip!` - wywołanie funkcji z wykrzyknikiem nadpisuje wartość
-- **`puts 'tekst'`** - wyświetlenie czegoś w konsoli
+- **`puts 'tekst'`** - wyświetlenie tekstu w konsoli
 - **`name = gets`** - pobranie danych z konsoli do zmiennej `name`
 - **`test.class`** - zwróci nazwę klasy zmiennej `test`
 - **`test.methods`** - lista wszystkich metod zmiennej `test`
 - **`test.public_methods`** - lista tylko metod publicznych
 - **`String.superclass`** - klasa nadrzędna danej klasy
+- `"test " * 4` zwróci `"test test test test"`
+- `[1, 2] * 2` zwróci `[1, 2, 1, 2]`
+- `a = a.strip` można zapisać jako `a.strip!` - wywołanie funkcji z wykrzyknikiem nadpisuje wartość
 - Liczby binarne  zapisuje się jako `0b101010`, szesnastkowe jako `0xFA5B`.
 - W liczbach można używać podkreślników, Ruby je ignoruje, np `564_8758_98` da nam wynik `564875898`
 - Komentarze zaczyna się od hasha (znak #)
@@ -43,9 +64,21 @@ Wielkość znaków ma znaczenie
 #<Spaceship:0x02a2f7e0 @name="serenity", @cargo=12, @weight=222.22>
 ```
 
+<style>
+p {
+    margin-top: 10px;
+}
 
+h1 {
+  margin-top: 30px;
+}
+
+h4 {
+    margin-top: 20px;
+}
+</style>
 #### Zmienne
-- `zmienna = 10` - przypisanie wartości
+- `zmienna = 10`, `b = 'test'`, `c = false` - zadeklarowanie zmiennych i przypisanie wartości
 - `tablica = [1, 2, 3, 4]` - zwykła tablica
 - `$zmienna_globalna` - zaczyna się od znaku dolara
 
@@ -56,6 +89,83 @@ def metoda(argument)
   argument * 2
 end
 ```
+
+
+# Typy wbudowane
+- `true` to obiekt klasy `TrueClass`. `false` to obiekt klasy `FalseClass`
+- Po `Integer` dziedziczą dwie klasy: `Fixnum` (mniejsze liczby) oraz `Bignum` (duże liczby).
+- Liczbę`Float` zapisujemy jako `2.0`
+- Obiekty reprezentujące liczby są **read only**! Dlatego nie ma operatora `++` ani `--`
+- Wyświetlanie znaków specjalnych w stringach za pomocą `%q`:
+
+```ruby
+%q('Zielony' buszmen) # => 'Zielony' buszmen
+%q<'Zielony' buszmen>
+%q{'Zielony' buszmen}
+```
+
+- Podwójne cudzysłowy `"` umożliwiają _interpolację_:
+
+```ruby
+counter = 20
+qty = 2
+puts "Licznik: #{counter}" # interpolacja
+puts "Ilość: #{counter * qty}"
+```
+
+- Metody i operatory klasy `String`:
+
+```ruby
+puts "Hello world"[1] # => "e"
+puts "Hello world"[1, 4] # => "ello"
+
+a = "Hello world"
+a["world"] = "sky"
+puts a # => "Hello sky"
+
+puts "ble " * 3 # => "ble ble ble "
+
+puts "%05d" % 321 # => "00321"
+puts "%.4g" % 3.14151692653 # => "3.142"
+
+puts "aa" + "bbb" # => "aabbb"
+```
+
+### Tablice
+```ruby
+arr = [] # pusta tablica
+arr = Array.new(3) # [nil, nil, nil]
+arr = Array.new(3, "abc") # ["abc", "abc", "abc"], każdy element to ten sam obiekt
+arr = Array.new(3) { "abc" } # ["abc", "abc", "abc"], każdy element to inny obiekt
+arr[-1] # ostatni element tablicy
+arr[1..3] # zwróci elementy od 1 do 3 włącznie
+```
+
+### Hashe
+```ruby
+h = {} # pusty hash
+h = {"min" => 0, "max" => 10}
+h["max"]
+
+z = {:min => 0, :max => 10}
+z = {min: 0, max: 10}
+z[:max]
+
+z.each { |k, v| puts "#{k}: #{v}" } # wyświetlenie wszystkich wartości hasha
+```
+
+### Zakresy (Range)
+```ruby
+(1..7)  # [1, 7]
+(1...7) # [1, 7)
+```
+
+### Splat Operator
+```ruby
+a, *b = get_values  # a == 1, b == [2, 3, 4]
+a, *b, c = get_values  # a == 1, b == [2, 3], c == 4
+```
+
 
 # Klasy i obiekty
 ```ruby
@@ -536,82 +646,3 @@ rescue RuntimeError => e
   end
 end
 ```
-
-# Typy wbudowane - Ruby Standard Library
-- `true` to obiekt klasy `TrueClass`. `false` to obiekt klasy `FalseClass`
-- Po `Integer` dziedziczą dwie klasy: `Fixnum` (mniejsze liczby) oraz `Bignum` (duże liczby).
-- Liczbę`Float` zapisujemy jako `2.0`
-- Obiekty reprezentujące liczby są **read only**! Dlatego nie ma operatora `++` ani `--`
-- Wyświetlanie zanków specjalnych w stringach za pomocą `%q`:
-
-```ruby
-%q('Zielony' buszmen) # => 'Zielony' buszmen
-%q<'Zielony' buszmen>
-%q{'Zielony' buszmen}
-```
-
-- Podwójne cudzysłowy `"` umożliwiają _interpolację_:
-
-```ruby
-counter = 20
-qty = 2
-puts "Licznik: #{counter}"
-puts "Ilość: #{counter * qty}"
-```
-
-- Metody i operatory klasy `String`:
-
-```ruby
-puts "Hello world"[1] # => "e"
-puts "Hello world"[1, 4] # => "ello"
-
-a = "Hello world"
-a["world"] = "sky"
-puts a # => "Hello sky"
-
-puts "ble " * 3 # => "ble ble ble "
-
-puts "%05d" % 321 # => "00321"
-puts "%.4g" % 3.14151692653 # => "3.142"
-
-puts "aa" + "bbb" # => "aabbb"
-```
-
-
-### Tablice
-```ruby
-arr = [] # pusta tablica
-arr = Array.new(3) # [nil, nil, nil]
-arr = Array.new(3, "abc") # ["abc", "abc", "abc"], każdy element to ten sam obiekt
-arr = Array.new(3) { "abc" } # ["abc", "abc", "abc"], każdy element to inny obiekt
-arr[-1] # ostatni element tablicy
-arr[1..3] # zwróci elementy od 1 do 3 włącznie
-```
-
-
-### Hashe
-```ruby
-h = {} # pusty hash
-h = {"min" => 0, "max" => 10}
-h["max"]
-
-z = {:min => 0, :max => 10}
-z = {min: 0, max: 10}
-z[:max]
-
-z.each { |k, v| puts "#{k}: #{v}" } # wyświetlenie wszystkich wartości hasha
-```
-
-
-### Zakresy (Range)
-```ruby
-(1..7)  # [1, 7]
-(1...7) # [1, 7)
-```
-
-### Splat Operator
-```ruby
-a, *b = get_values  # a == 1, b == [2, 3, 4]
-a, *b, c = get_values  # a == 1, b == [2, 3], c == 4
-```
-
