@@ -138,25 +138,19 @@ Ostatnia, czwarta podsieć ma bity **`11`**:
 
 Daje nam to 145.128, więc adresem czwartej podsieci jest 120.130.145.128
 
-Obliczmy teraz pierwszy adres podsieci. do każdej wystarczy dodać 1.
+Obliczmy teraz pierwszy adres hosta w podsieci. Do każdej wystarczy dodać 1.
   
-1) 120.130.144.0 do adresu sieci +1 = 120.130.144.**1**
-  
-2) 120.130.144.128 do adresu sieci +1 = 120.130.144.**129**
-  
-3) 120.130.145.0 do adresu sieci +1 = 120.130.145.**1**
-  
-4) 120.130.145.128 do adresu sieci +1 = 120.130.145.**129**
+1. - 120.130.144.0 do adresu sieci +1 = 120.130.144.**1**
+2. - 120.130.144.128 do adresu sieci +1 = 120.130.144.**129**
+3. - 120.130.145.0 do adresu sieci +1 = 120.130.145.**1**
+4. - 120.130.145.128 do adresu sieci +1 = 120.130.145.**129**
 
 Teraz obliczymy adres broad cast dla poszczególnych podsieci. Tak jak już było wspominane, adres ten jest ostatnim możliwym w danej podsieci
   
-1) 1001000 0.01**1111111** – daje nam to liczbę 144.127, więc adres broadcast  to 120.130.144.**127**
-  
-2) 1001000 0.11**1111111** – daje nam to liczbę 144.255, więc adres broadcast  to 120.130.144.**255**
-  
-3) 1001000 1.01**1111111** – daje nam to liczbę 145.127, więc adres broadcast  to 120.130.145.**127**
-  
-4) 1001000 1.11**1111111** – daje nam to liczbę 145.255, więc adres broadcast  to 120.130.145.**255**
+1. - 1001000 0.01**1111111** – daje nam to liczbę 144.127, więc adres broadcast  to 120.130.144.**127**
+2. - 1001000 0.11**1111111** – daje nam to liczbę 144.255, więc adres broadcast  to 120.130.144.**255**
+3. - 1001000 1.01**1111111** – daje nam to liczbę 145.127, więc adres broadcast  to 120.130.145.**127**
+4. - 1001000 1.11**1111111** – daje nam to liczbę 145.255, więc adres broadcast  to 120.130.145.**255**
 
 >   Aby obliczyć adres ostatniego hosta wystarczy że od adresu broadcast odejmiemy jedynkę. A więc dla przykładu ostatnim adresem w pierwszej podsieci będzie 120.130.144.126, gdyż adres broadcast to 120.130.144.127.
 

@@ -13,7 +13,7 @@ tags:
 ---
 Niniejszy poradnik został stworzony dla osób, którym obce jest dzielenie sieci na podsieci. W tym poradniku pokażę obliczanie adresów sieci oraz jak ugryźć maskę, by sobie zębów nie połamać. Poradnik składa się z dwóch części. Druga jest dostępna tutaj: [Adresacja IP cz. 2 – podział na podsieci](/2017/02/18/adresacja-ip-cz-2-podzial-na-podsieci/).
 
-> Pierwotnie poradnik został wrzucony na stronę Pcfaq.pl Z racji tego, że ma wysoką wartość _edukacyjną_ oraz że jest on mojego autorstwa, postanowiłem go przenieść także i tutaj.
+> Pierwotnie poradnik został wrzucony na stronę Pcfaq.pl. Został on napisany w kwietniu 2015r. Z racji tego, że jest on mojego autorstwa oraz ma wysoką wartość _edukacyjną_, postanowiłem go przenieść także i tutaj.
 
 ## Adres IP i jego maska
 A więc, aby zrozumieć zaawansowane „techniki”, musimy przypomnieć sobie podstawy. Co to jest adres IP i do czego służy nie wytłumaczę, gdyż Wiki nie kot, nie ugryzie. Na „warsztat” rzucimy sobie przykładowy adres IP:
