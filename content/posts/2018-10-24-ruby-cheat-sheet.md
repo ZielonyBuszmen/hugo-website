@@ -13,7 +13,17 @@ tags:
 
 Ruby jest dosyć rozbudowanym językiem pod względem składni. Sam język ma lukier składniowy (_syntax sugar_) prawie na każdy element. Dlatego poniżej wrzucam małą ściągawkę ze składni. Post jest dosyć rozbudowany, dlatego polecam go przeszukiwać, a nie czytać w całości.
 
-### _Spis treści_
+____
+
+Ten wpis jest jednym z serii o _Ruby_, które pojawiły się na blogu:
+
+1. **Ruby - ściągawka**
+2. [Metody na metody w Ruby](/2018/11/24/metody-na-metody-ruby/)
+
+____
+
+
+### _Spis treści wpisu_
     
  - [Typy wbudowane](#typy-wbudowane)
     - [Tablice](#tablice)
@@ -22,7 +32,7 @@ Ruby jest dosyć rozbudowanym językiem pod względem składni. Sam język ma lu
     - [Splat Operator](#splat-operator)
  - [Klasy i obiekty](#klasy-i-obiekty)
      - [Akcesory](#akcesory)
-     - [Konstruktory](#konstruktory)
+     - [Konstruktory](#konstruktory-initialize) - `initialize`
      - [Dziedziczenie](#dziedziczenie)
      - [Zmienne i metody klasy](#zmienne-i-metody-klasy)
      - [Inne](#inne)
@@ -42,7 +52,7 @@ Ruby jest dosyć rozbudowanym językiem pod względem składni. Sam język ma lu
           - [Ponawianie prób](#ponawianie-prób)
 
 Warto zaznaczyć, że w Ruby wielkość znaków ma znaczenie. Nazwy zmiennych `Ble` oraz `ble` są rozróżniane i wykrywane jako dwie różne. Nazwy zmiennych, metod i symboli piszemy `snake_casem`. Klasy i moduły nazywamy `CamelCasem`. Jako `tab` używamy dwóch spacji.
-Więcej o konwencji nazwniczej [można znaleźć tutaj](https://github.com/rubocop-hq/ruby-style-guide#naming)
+Więcej o konwencji nazewniczej [można znaleźć tutaj](https://github.com/rubocop-hq/ruby-style-guide#naming)
 
 - **`puts 'tekst'`** - wyświetlenie tekstu w konsoli
 - **`name = gets`** - pobranie danych z konsoli do zmiennej `name`
@@ -54,7 +64,7 @@ Więcej o konwencji nazwniczej [można znaleźć tutaj](https://github.com/ruboc
 - `[1, 2] * 2` zwróci `[1, 2, 1, 2]`
 - `a = a.strip` można zapisać jako `a.strip!` - wywołanie funkcji z wykrzyknikiem nadpisuje wartość
 - Liczby binarne  zapisuje się jako `0b101010`, szesnastkowe jako `0xFA5B`.
-- W liczbach można używać podkreślników, Ruby je ignoruje, np `564_8758_98` da nam wynik `564875898`
+- W liczbach można używać podkreślników, Ruby je ignoruje, np. `564_8758_98` da nam wynik `564875898`
 - Komentarze zaczyna się od hasha (znak #)
 - **`b = a.clone`** - klonuje zmienną lub obiekt. Zwykłe przypisanie tylko kopiuje referencję
 - **`p obiekt`** - wyświetla wszystkie wartości zmiennych danego obiektu. Jest to skrót od `object.inspect`
@@ -138,6 +148,10 @@ arr = Array.new(3, "abc") # ["abc", "abc", "abc"], każdy element to ten sam obi
 arr = Array.new(3) { "abc" } # ["abc", "abc", "abc"], każdy element to inny obiekt
 arr[-1] # ostatni element tablicy
 arr[1..3] # zwróci elementy od 1 do 3 włącznie
+arr = [1, 2, 3]
+arr = [:a, :bb, :ccc]
+arr = ['info', 2, true]
+arr = [[1, 2], [3, 4]]
 ```
 
 ### Hashe
@@ -204,7 +218,7 @@ p pablo.name # wyświetlenie wartości => "Pablo"
 
 Pierwsza funkcja to getter, zwraca zmienną `name`, natomiast druga to stter - ustawia jej wartość.
 
-Powyższy kod można skrócić - Ruby oferuje tzw **akcesory**. Zobaczmy:
+Powyższy kod można skrócić - Ruby oferuje tzw. **akcesory**. Zobaczmy:
 
 ```ruby
 class Person
@@ -342,7 +356,7 @@ end
 
 
 #### Monkey patching & Open classes
-Termin __Open classes__ oznacza, że możemy deklarować jedną klasę w wielu miejscach, dodając jej po jednej metodzie. Możemy też dowolnie nadpisywać jakieś metody innymi. Dzięki temu, Ruby umożliwia tzw __Monkey Patching__, czyli np dodawanie do wbudowanej klasy String nowych metod. Możliwe też jest ich nadpisywanie:
+Termin __Open classes__ oznacza, że możemy deklarować jedną klasę w wielu miejscach, dodając jej po jednej metodzie. Możemy też dowolnie nadpisywać jakieś metody innymi. Dzięki temu, Ruby umożliwia tzw. __Monkey Patching__, czyli np. dodawanie do wbudowanej klasy String nowych metod. Możliwe też jest ich nadpisywanie:
 
 ```ruby
 class String
@@ -381,7 +395,7 @@ end
 
 - `false` i `nil` są traktowane jako **`false`**
 - reszta, czyli `true`, `0`, `''` (pusty string), `[]` (pusta tablica) - są traktowane jako **`true`**
-- konwertowanie do boola można dokonać operatorem `!!`, np `!![]`
+- konwertowanie do boola można dokonać operatorem `!!`, np. `!![]`
 
 ```ruby
 # if not == unless
