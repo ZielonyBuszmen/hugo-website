@@ -19,6 +19,7 @@ Ten wpis jest jednym z serii o _Ruby_, które pojawiły się na blogu:
 
 1. **Ruby - ściągawka**
 2. [Metody na metody w Ruby](/2018/11/24/metody-na-metody-ruby/)
+3. [Bloki i moduły w Ruby](/2019/02/17/bloki-i-moduly/)
 
 ____
 
