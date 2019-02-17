@@ -76,7 +76,7 @@ end
 
 ```
 
-Argumenty bloku, tak jak i argumenty funkcji, mogą mieć swoje domyśln wartości. Możemy też używać argumentów nazwanych oraz argumentów przekazywanych jako splat:
+Argumenty bloku, tak jak i argumenty funkcji, mogą mieć swoje domyślne wartości. Możemy też używać argumentów nazwanych oraz argumentów przekazywanych jako splat:
 
 
 ```ruby
@@ -131,7 +131,7 @@ def destinator
 end
 ```
  
-Rozwiązaniem tego problemu są zmienne lokalne bloku, które definuje się po średniku na liście parametrów. Wówczas zmienna `attrs` z zewnątrz nie zostanie zmieniona:
+Rozwiązaniem tego problemu są zmienne lokalne bloku, które definiuje się po średniku na liście parametrów. Wówczas zmienna `attrs` z zewnątrz nie zostanie zmieniona:
 
 ```ruby
 def destinator
@@ -185,18 +185,18 @@ p.('sth')
 p['summit']
 ```
 
-#### Różnice pomiędzy obiektami `Proc` a funkcjami lambda:
+#### Różnice pomiędzy obiektami `Proc`, a funkcjami lambda:
 
  - Obiekt `Proc` jest bardziej podobny do bloku, natomiast lambda jest zwykłą funkcją anonimową.
  - Funkcje lambda ściśle przestrzegają argumentów - podanie zbyt małej ilości argumentów (lub zbyt dużej) spowoduje wyrzucenie wyjątku.
- - W obiekcie `Proc` nadmiarowe argumenty zostaną odrzucone, a brakujące przyjmą warość `Nil`
+ - W obiekcie `Proc` nadmiarowe argumenty zostaną odrzucone, a brakujące przyjmą wartość `Nil`
  - `return` i `break` działają inaczej w `Proc` i lambda.
      - W obiekcie `Proc` instrukcja `return` przerywa wykonywanie funkcji, w której `Proc` został wywołany. 
-     - W `Procs` słowo break nie jest dozwolone, chyba że w pętli
+     - W `Procs` instrukcja `break` nie jest dozwolone, chyba że w pętli.
      - W funkcji lambda `break` i `return` zwracają kontrolę do funkcji wywołującej, nie przerywając jej działania.
 
 ### Moduły
-Ruby oferuje możliwość tworzenia modułów. Moduły możemy traktować jako przestrzenie nazw, w w których mamy możliwość zadeklarowania klas i metod. Nie posiadają one własnych instancji. Moduły można zagnieżdżać w sobie. Tworzymy je w taki sposób:
+Ruby oferuje możliwość tworzenia modułów. Moduły możemy traktować jako przestrzenie nazw, w których mamy możliwość zadeklarowania klas i metod. Nie posiadają one własnych instancji. Moduły można zagnieżdżać w sobie. Tworzymy je w taki sposób:
 
 ```ruby
 module API
@@ -205,7 +205,7 @@ end
 ```
 
 ### Stałe
-Pomimo wielu możliwości, które dają nam symbole w Ruby, stałe też mają swoje zastosowanie. Stałe są bardzo podobne do zmiennych, ponieważ też przechowują referencję do obiektu, tylko z tą różnicą, że nie powinno się zmieniać tej referencji. Mówię "nie powinno", ponieważ Ruby zezwala na taką operację, jednakże wyświetli wtedy warning.
+Pomimo wielu możliwości, które dają nam symbole w Ruby, stałe też mają swoje zastosowanie. Stałe są bardzo podobne do zmiennych, ponieważ też przechowują referencję do obiektu, tylko z tą różnicą, że nie powinno się zmieniać tej referencji. Mówię "nie powinno", ponieważ Ruby zezwala na taką operację, jednakże zostanie wygenerowanie ostrzeżenie.
 
 Stała musi rozpoczynać się dużą literą (`LIMIT = 100`). Więc nazwy klas też są stałymi.
 
@@ -232,7 +232,7 @@ PLACES.freeze
 PLACES[0].upcase! # "EARTH"
 ```
 
-Tworząc stałą poza jakimkolwiek modułem bądź klasą, staje się ona widoczna w całym projekcie. Stałe utworzone w modułach lub w klasach są widoczne tylko w nich. Mamy jednak możliwość odwołania się do nich z dowolnego miejsca poprzed operator `::`
+Tworząc stałą poza jakimkolwiek modułem bądź klasą, staje się ona widoczna w całym projekcie. Stałe utworzone w modułach lub w klasach są widoczne tylko w nich. Mamy jednak możliwość odwołania się do nich z dowolnego miejsca poprzez operator `::`
 
 ```ruby
 class A; LIMIT = 50; end
