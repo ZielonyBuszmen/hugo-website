@@ -20,7 +20,7 @@ ____
 git clone https://github.com/bartoszgajda55/projektMoodle.git
 ``` 
 * <span class="project-info link-github">Github - </span>[github.com/bartoszgajda55/projektMoodle](https://github.com/bartoszgajda55/projektMoodle)
-* <span class="project-info">Działający projekt - </span>[projektmoodle.cba.pl](http://projektmoodle.cba.pl/) lub [projektmoodle.za.pl](http://projektmoodle.za.pl/)
+* <span class="project-info">Działający projekt - </span>[projektmoodle.cba.pl](http://projektmoodle.cba.pl/)
 * <span class="project-info">Użyte technologie - </span> PHP, MySQL, Bootstrap
 * <span class="project-info">Kiedy - </span> październik/listopad 2015
 * <span class="project-info">Zespół - </span> niewielki, bo dwuosobowy. Razem ze mną kodził Bartosh: **[bartoszgajda.com](http://bartoszgajda.com/)**

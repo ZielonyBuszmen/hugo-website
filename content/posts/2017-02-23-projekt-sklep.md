@@ -15,7 +15,7 @@ tags:
 git clone https://github.com/ZielonyBuszmen/projektSklep.git
 ``` 
 * <span class="project-info link-github">Github - </span>[github.com/ZielonyBuszmen/projektSklep](https://github.com/ZielonyBuszmen/projektSklep)
-* <span class="project-info">Działający projekt - </span>[projektsklep.cba.pl](http://projektsklep.cba.pl/) lub [projektsklep.za.pl](http://projektsklep.za.pl/)
+* <span class="project-info">Działający projekt - </span>[projektsklep.cba.pl](http://projektsklep.cba.pl/)
 * <span class="project-info">Użyte technologie - </span> PHP, MySQL, Bootstrap
 * <span class="project-info">Kiedy - </span> listopad/grudzień 2015
 * <span class="project-info">Zespół - </span> niewielki, bo dwuosobowy. Razem ze mną kodził Bartosh: **[bartoszgajda.com](http://bartoszgajda.com)**

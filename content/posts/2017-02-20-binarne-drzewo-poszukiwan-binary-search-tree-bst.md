@@ -319,9 +319,7 @@ Ostatnia funkcja to `Count()` **(//10)**, która zwraca ilość elementów w drz
 
 ![foto](/img/posts/bst/drzewo-bst.png)
 
-# Cały kod:
-
-## <http://wklej.org/id/3021727/>
+## Cały kod:
 
 ```csharp
 using System;
@@ -512,4 +510,4 @@ namespace tree
 ```
 
 
-## [Pobierz wszystko w PDF](/files/drzewo.pdf)
+## [Pobierz artykuł w PDF](/files/drzewo.pdf)
